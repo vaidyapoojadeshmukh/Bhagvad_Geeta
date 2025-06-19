@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bhagavad Gita - Chapter 8</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <header id="header">
+        <div class="logo">
+            <span class="icon fa-gem"></span>
+        </div>
+        <div class="content">
+            <div class="inner">
+                <h1>Bhagavad Gita - Chapter 8</h1>
+                <p>Read the original Sanskrit shlokas with English, Marathi, and Hindi meanings</p>
+            </div>
+        </div>
+        <button id="toggle-theme" style="position:absolute;top:20px;right:30px;padding:8px 18px;border:none;border-radius:20px;background:#222;color:#fff;cursor:pointer;font-size:1em;transition:background 0.3s;">🌙 Dark Mode</button>
+    </header>
+    <style>
+        :root {
+            --bg-light: #fdfdfd;
+            --bg-dark: #181c24;
+            --container-light: #ffffff;
+            --container-dark: #23283a;
+            --border-light: #ddd;
+            --border-dark: #2d3347;
+            --text-light: #333;
+            --text-dark: #e6e6e6;
+            --accent-light: #d35400;
+            --accent-dark: #ffb347;
+            --shloka-light: #555;
+            --shloka-dark: #b3b3b3;
+            --translation-bg-light: #f7f7f7;
+            --translation-bg-dark: #23283a;
+            --footer-light: #666;
+            --footer-dark: #aaa;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: background 0.4s, color 0.4s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: var(--container-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+            transition: background 0.4s, border 0.4s, box-shadow 0.4s;
+        }
+        h1 {
+            text-align: center;
+            color: var(--accent-light);
+            margin-bottom: 15px;
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+        .shloka {
+            font-style: italic;
+            margin: 18px 0 10px 0;
+            text-align: center;
+            color: var(--shloka-light);
+            font-size: 1.18em;
+            letter-spacing: 0.5px;
+        }
+        .translation {
+            margin: 15px 0 25px 0;
+            padding: 14px 18px;
+            background-color: var(--translation-bg-light);
+            border-radius: 7px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px 0 rgba(211,84,0,0.04);
+            transition: background 0.4s, border 0.4s;
+        }
+        .translation h2 {
+            color: var(--accent-light);
+            margin-bottom: 7px;
+            font-size: 1.13em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .translation p {
+            margin: 5px 0 10px 0;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: var(--footer-light);
+            background: transparent;
+            padding-bottom: 20px;
+            transition: color 0.4s;
+        }
+        .footer-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .footer-link:hover {
+            color: #b34700 !important;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        body.dark-mode .container {
+            background: var(--container-dark);
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+        }
+        body.dark-mode h1 {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .shloka {
+            color: var(--shloka-dark);
+        }
+        body.dark-mode .translation {
+            background-color: var(--translation-bg-dark);
+            border: 1px solid var(--border-dark);
+        }
+        body.dark-mode .translation h2 {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .translation p {
+            color: var(--text-dark);
+        }
+        body.dark-mode .footer-link {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .footer-link:hover {
+            color: #ffd580 !important;
+        }
+        body.dark-mode footer {
+            color: var(--footer-dark);
+        }
+        #toggle-theme {
+            z-index: 100;
+        }
+    </style>
+    <script>
+        const btn = document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+                document.body.classList.add('dark-mode');
+                toggleBtn.textContent = '☀️ Light Mode';
+            }
+            toggleBtn.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                if(document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    toggleBtn.textContent = '☀️ Light Mode';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    toggleBtn.textContent = '🌙 Dark Mode';
+                }
+            });
+        });
+    </script>
+    <!-- Navigation Buttons at the Top -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto 10px auto; max-width: 800px;">
+            
+            <a href="index.html" class="footer-link">Home</a> |
+            <a href="chapter-7.html" class="footer-link">Previous Chapter</a> |
+            <a href="chapter-9.html" class="footer-link">Next Chapter</a>
+        </div>
+        <style>
+            .footer-btn-left, .footer-btn-right {
+                display: inline-block;
+                padding: 8px 22px;
+                border-radius: 22px;
+                background: #f7f7f7;
+                border: 1px solid #d35400;
+                color: #d35400;
+                font-weight: 600;
+                text-decoration: none;
+                transition: background 0.2s, color 0.2s, border 0.2s;
+                box-shadow: 0 2px 8px 0 rgba(211,84,0,0.04);
+            }
+            .footer-btn-left:hover, .footer-btn-right:hover {
+                background: #d35400;
+                color: #fff !important;
+                border-color: #b34700;
+            }
+            body.dark-mode .footer-btn-left,
+            body.dark-mode .footer-btn-right {
+                background: #23283a;
+                color: #ffb347;
+                border: 1px solid #ffb347;
+            }
+            body.dark-mode .footer-btn-left:hover,
+            body.dark-mode .footer-btn-right:hover {
+                background: #ffb347;
+                color: #23283a !important;
+                border-color: #ffd580;
+            }
+        </style>
+    <body>
+        <div class="container">
+            <div class="shloka">
+                अर्जुन उवाच |<br>
+                किं तद् ब्रह्म किमध्यात्मं किं कर्म पुरुषोत्तम |<br>
+                अधिभूतं च किं प्रोक्तमधिदैवं किमुच्यते || 8.1 ||<br><br>
+                अधियज्ञ: कथं कोऽत्र देहेऽस्मिन्मधुसूदन |<br>
+                प्रयाणकाले च कथं ज्ञेयोऽसि नियतात्मभिः || 8.2 ||
+            </div>
+            <div class="translation">
+                <h2>English Translation</h2>
+                <p>
+                    Arjuna said: O Supreme Person, what is Brahman? What is the self? What is karma, O Purushottama? What is said to be the material manifestation, and what is called the demigods?<br>
+                    Who is the Lord of sacrifice and how does He dwell in the body, O Madhusudana? And how can those engaged in devotional service know You at the time of death?
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    अर्जुन म्हणाला: हे पुरुषोत्तम, ब्रह्म म्हणजे काय? अध्यात्म म्हणजे काय? कर्म म्हणजे काय? अधिभूत म्हणजे काय आणि अधिदैवत म्हणजे काय?<br>
+                    हे मधुसूदन, अधियज्ञ कोण आहे आणि तो या शरीरात कसा वास करतो? आणि मृत्युकाळी तुझी ओळख कशी होते?
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    अर्जुन बोले: हे पुरुषोत्तम! ब्रह्म क्या है? अध्यात्म क्या है? कर्म क्या है? अधिभूत क्या है और अधिदैव क्या कहा गया है?<br>
+                    हे मधुसूदन! अधियज्ञ कौन है और इस शरीर में वह कैसे है? और मृत्यु के समय आपको जानने वाले साधक आपको कैसे जान सकते हैं?
+                </p>
+            </div>
+            <div class="shloka">
+                श्रीभगवानुवाच |<br>
+                अक्षरं ब्रह्म परमं स्वभावोऽध्यात्ममुच्यते |<br>
+                भूतभावोद्भवकरो विसर्गः कर्मसंज्ञितः || 8.3 ||<br><br>
+                अधिभूतं क्षरो भावः पुरुषश्चाधिदैवतं |<br>
+                अधियज्ञोऽहमेवात्र देहे देहभृतां वर || 8.4 ||
+            </div>
+            <div class="translation">
+                <h2>English Translation</h2>
+                <p>
+                    The Blessed Lord said: The indestructible, transcendental living entity is called Brahman, and his eternal nature is called the self. Action pertaining to the material bodies of living beings is called karma.<br>
+                    The physical manifestation is called the perishable, and the universal form (Virat Purusha) is called the demigod. I am the Lord of sacrifice, residing in this body, O best of embodied beings.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    श्रीभगवान म्हणाले: अक्षर (नाश न होणारे) म्हणजे ब्रह्म, स्वतःचा स्वभाव म्हणजे अध्यात्म, आणि सर्व प्राण्यांच्या उत्पत्तीचे कारण असलेली क्रिया म्हणजे कर्म.<br>
+                    अधिभूत म्हणजे नाश पावणारे भौतिक स्वरूप, पुरुष म्हणजे अधिदैवत, आणि या शरीरात अधियज्ञ म्हणजे मी स्वतः आहे, हे देहधारी श्रेष्ठ अर्जुना.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    श्रीभगवान बोले: अविनाशी परम तत्व को ब्रह्म कहा गया है, आत्मा को अध्यात्म कहा गया है, और समस्त प्राणियों की उत्पत्ति का कारण बनने वाली क्रिया को कर्म कहा गया है।<br>
+                    नाशवान पदार्थ अधिभूत कहलाता है, पुरुष अधिदैवत है, और इस शरीर में अधियज्ञ मैं स्वयं हूँ, हे देहधारियों में श्रेष्ठ अर्जुन।
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="shloka">
+                अन्तकाले च मामेव स्मरन्मुक्त्वा कलेवरम् |<br>
+                यः प्रयाति स मद्भावं याति नास्त्यत्र संशयः || 8.5 ||
+            </div>
+            <div class="translation">
+                <h2>English Translation</h2>
+                <p>
+                    And whoever, at the end of life, quits his body remembering Me alone at once attains My nature. Of this there is no doubt.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    जो मनुष्य शेवटच्या क्षणी फक्त माझेच स्मरण करतो आणि शरीराचा त्याग करतो, तो माझ्या स्वरूपाला प्राप्त होतो. यात काहीही शंका नाही.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    जो मनुष्य अंतिम समय में केवल मुझे स्मरण करता हुआ शरीर त्यागता है, वह निःसंदेह मेरे स्वरूप को प्राप्त होता है।
+                </p>
+            </div>
+            <div class="shloka">
+                यं यं वापि स्मरन्भावं त्यजत्यन्ते कलेवरम् |<br>
+                तं तमेवैति कौन्तेय सदा तद्भावभावितः || 8.6 ||
+            </div>
+            <div class="translation">
+                <h2>English Translation</h2>
+                <p>
+                    Whatever state of being one remembers when he quits his body, O son of Kunti, that state he will attain without fail.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    कोणत्याही अवस्थेचे स्मरण करत जो मनुष्य शरीराचा त्याग करतो, हे कौन्तेय, तो नेहमीच त्या अवस्थेला प्राप्त होतो.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    हे कौन्तेय! जो मनुष्य जिस-जिस भाव का स्मरण करते हुए शरीर त्यागता है, वह सदा उसी भाव को प्राप्त होता है।
+                </p>
+            </div>
+        </div>
+     <footer>
+       
+        <p>
+            Bhagavad Gita - Chapter 9 &copy; 2025. All rights reserved.
+        </p>
+    </footer>
+    <style>
+        .footer-link:hover {
+            color: #d35400 !important;
+        }
+    </style>
+</body>
+</html>

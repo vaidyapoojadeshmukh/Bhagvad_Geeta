@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bhagavad Gita - Chapter 18</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <header id="header">
+        <div class="logo">
+            <span class="icon fa-gem"></span>
+        </div>
+        <div class="content">
+            <div class="inner">
+                <h1>Bhagavad Gita - Chapter 18</h1>
+                <p>Read the original Sanskrit shlokas with English, Marathi, and Hindi meanings</p>
+            </div>
+        </div>
+        <button id="toggle-theme" style="position:absolute;top:20px;right:30px;padding:8px 18px;border:none;border-radius:20px;background:#222;color:#fff;cursor:pointer;font-size:1em;transition:background 0.3s;">🌙 Dark Mode</button>
+    </header>
+    <style>
+        :root {
+            --bg-light: #fdfdfd;
+            --bg-dark: #181c24;
+            --container-light: #ffffff;
+            --container-dark: #23283a;
+            --border-light: #ddd;
+            --border-dark: #2d3347;
+            --text-light: #333;
+            --text-dark: #e6e6e6;
+            --accent-light: #d35400;
+            --accent-dark: #ffb347;
+            --shloka-light: #555;
+            --shloka-dark: #b3b3b3;
+            --translation-bg-light: #f7f7f7;
+            --translation-bg-dark: #23283a;
+            --footer-light: #666;
+            --footer-dark: #aaa;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: background 0.4s, color 0.4s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: var(--container-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+            transition: background 0.4s, border 0.4s, box-shadow 0.4s;
+        }
+        h1 {
+            text-align: center;
+            color: var(--accent-light);
+            margin-bottom: 15px;
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+        .shloka {
+            font-style: italic;
+            margin: 18px 0 10px 0;
+            text-align: center;
+            color: var(--shloka-light);
+            font-size: 1.18em;
+            letter-spacing: 0.5px;
+        }
+        .translation {
+            margin: 15px 0 25px 0;
+            padding: 14px 18px;
+            background-color: var(--translation-bg-light);
+            border-radius: 7px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px 0 rgba(211,84,0,0.04);
+            transition: background 0.4s, border 0.4s;
+        }
+        .translation h2 {
+            color: var(--accent-light);
+            margin-bottom: 7px;
+            font-size: 1.13em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .translation p {
+            margin: 5px 0 10px 0;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: var(--footer-light);
+            background: transparent;
+            padding-bottom: 20px;
+            transition: color 0.4s;
+        }
+        .footer-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .footer-link:hover {
+            color: #b34700 !important;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        body.dark-mode .container {
+            background: var(--container-dark);
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+        }
+        body.dark-mode h1 {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .shloka {
+            color: var(--shloka-dark);
+        }
+        body.dark-mode .translation {
+            background-color: var(--translation-bg-dark);
+            border: 1px solid var(--border-dark);
+        }
+        body.dark-mode .translation h2 {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .translation p {
+            color: var(--text-dark);
+        }
+        body.dark-mode .footer-link {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .footer-link:hover {
+            color: #ffd580 !important;
+        }
+        body.dark-mode footer {
+            color: var(--footer-dark);
+        }
+        #toggle-theme {
+            z-index: 100;
+        }
+    </style>
+    <script>
+        const btn = document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+                document.body.classList.add('dark-mode');
+                toggleBtn.textContent = '☀️ Light Mode';
+            }
+            toggleBtn.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                if(document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    toggleBtn.textContent = '☀️ Light Mode';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    toggleBtn.textContent = '🌙 Dark Mode';
+                }
+            });
+        });
+    </script>
+    </head>
+    <!-- Navigation Buttons at the Top -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto 10px auto; max-width: 800px;">
+            
+            <a href="index.html" class="footer-link">Home</a> |
+            <a href="chapter-17.html" class="footer-link">Previous Chapter</a> |
+           
+        </div>
+        <style>
+            .footer-btn-left, .footer-btn-right {
+                display: inline-block;
+                padding: 8px 22px;
+                border-radius: 22px;
+                background: #f7f7f7;
+                border: 1px solid #d35400;
+                color: #d35400;
+                font-weight: 600;
+                text-decoration: none;
+                transition: background 0.2s, color 0.2s, border 0.2s;
+                box-shadow: 0 2px 8px 0 rgba(211,84,0,0.04);
+            }
+            .footer-btn-left:hover, .footer-btn-right:hover {
+                background: #d35400;
+                color: #fff !important;
+                border-color: #b34700;
+            }
+            body.dark-mode .footer-btn-left,
+            body.dark-mode .footer-btn-right {
+                background: #23283a;
+                color: #ffb347;
+                border: 1px solid #ffb347;
+            }
+            body.dark-mode .footer-btn-left:hover,
+            body.dark-mode .footer-btn-right:hover {
+                background: #ffb347;
+                color: #23283a !important;
+                border-color: #ffd580;
+            }
+        </style>
+    <body>
+    <div class="container">
+        <div class="shloka">
+            <span>अर्जुन उवाच |<br>
+            संन्यासस्य महाबाहो तत्त्वमिच्छामि वेदितुम् |<br>
+            त्यागस्य च हृषीकेश पृथक्केशिनिषूदन || 18.1 ||</span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Arjuna said: O mighty-armed Krishna, I wish to understand the true nature of renunciation (sannyāsa) and of relinquishment (tyāga), and the difference between them, O Hrishikesha, O Kesava-slayer of the Kesi demon.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                अर्जुन म्हणाला: हे महाबाहो कृष्णा, संन्यास आणि त्याग यांचे तत्त्व मी जाणून घ्यायचे आहे. हे हृषीकेश, हे केशिनिषूदन, या दोघांमधील फरक काय आहे ते मला सांग.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                अर्जुन बोले: हे महाबाहु कृष्ण! मैं संन्यास और त्याग का तत्त्व जानना चाहता हूँ, हे हृषीकेश! हे केशिनिषूदन! कृपया मुझे दोनों में क्या अंतर है, यह बताइए।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                श्रीभगवानुवाच |<br>
+                काम्यानां कर्मणां न्यासं संन्यासं कवयो विदुः |<br>
+                सर्वकर्मफलत्यागं प्राहुस्त्यागं विचक्षणाः || 18.2 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                The Blessed Lord said: The sages understand sannyāsa as the renunciation of actions done with desire; the wise declare the abandonment of the fruits of all actions as tyāga.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                श्रीभगवान म्हणाले: ज्ञानी लोक काम्य कर्मांचा त्याग म्हणजे संन्यास असे म्हणतात; तर सर्व कर्मांच्या फळांचा त्याग म्हणजे त्याग असे विवेकी लोक सांगतात.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                श्रीभगवान बोले: ज्ञानीजन काम्य कर्मों के त्याग को संन्यास कहते हैं और सभी कर्मों के फलों के त्याग को त्याग कहते हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                त्याज्यं दोषवदित्येके कर्म प्राहुर्मनीषिणः |<br>
+                यज्ञदानतपःकर्म न त्याज्यमिति चापरे || 18.3 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Some philosophers declare that action should be given up as evil, while others say that acts of sacrifice, charity, and penance should not be abandoned.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                काही विचारवंत कर्म दोषयुक्त आहे म्हणून त्याचा त्याग करावा असे म्हणतात; तर काहीजण यज्ञ, दान आणि तप या कर्मांचा त्याग करू नये असे सांगतात.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                कुछ ज्ञानीजन कर्म को दोषयुक्त मानकर उसका त्याग करने को कहते हैं, जबकि अन्य लोग यज्ञ, दान और तप के कर्मों का त्याग नहीं करना चाहिए, ऐसा कहते हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                निश्चयं शृणु मे तत्र त्यागे भरतसत्तम |<br>
+                त्यागो हि पुरुषव्याघ्र त्रिविधः संप्रकीर्तितः || 18.4 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Hear from Me the truth about renunciation, O best of the Bharatas! Renunciation, O tiger among men, has been declared to be of three kinds.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे भरतश्रेष्ठ, त्यागाबद्दल माझे निश्चित मत ऐक. हे पुरुषसिंह, त्याग हा तीन प्रकारचा सांगितला आहे.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे भरतश्रेष्ठ! त्याग के विषय में मेरा निश्चित मत सुनो। हे पुरुषसिंह! त्याग तीन प्रकार का कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                यज्ञदानतपःकर्म न त्याज्यं कार्यमेव तत् |<br>
+                यज्ञो दानं तपश्चैव पावनानि मनीषिणाम् || 18.5 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Acts of sacrifice, charity, and penance are not to be given up; they must be performed. Indeed, sacrifice, charity, and penance are purifying even for those who are wise.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                यज्ञ, दान आणि तप या कर्मांचा त्याग करू नये; ती करणे आवश्यक आहे. कारण हे ज्ञानी लोकांसाठीही पावन करणारे आहेत.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                यज्ञ, दान और तप के कर्मों का त्याग नहीं करना चाहिए; ये अवश्य करने योग्य हैं। क्योंकि ये ज्ञानीजनों के लिए भी पवित्र करने वाले हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                एतान्यपि तु कर्माणि सङ्गं त्यक्त्वा फलानि च |<br>
+                कर्तव्यानीति मे पार्थ निश्चितं मतमुत्तमम् || 18.6 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Even these actions should be performed by giving up attachment and the desire for rewards, O Arjuna. This is My definite and supreme verdict.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे पार्थ, या सर्व कर्मांनाही आसक्ती आणि फळाची इच्छा न ठेवता करावे, हे माझे निश्चित आणि श्रेष्ठ मत आहे.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे पार्थ! इन सब कर्मों को भी आसक्ति और फल की इच्छा का त्याग करके करना चाहिए—यह मेरा निश्चित और श्रेष्ठ मत है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                नियतस्य तु संन्यासः कर्मणो नोपपद्यते |<br>
+                मोहात्तस्य परित्यागस्तामसः परिकीर्तितः || 18.7 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                But the renunciation of prescribed duties is not proper. Abandoning such work out of delusion is declared to be in the mode of ignorance (tamas).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                परंतु नियत कर्मांचा त्याग योग्य नाही. मोहामुळे त्यांचा त्याग करणे हा तामस त्याग समजला जातो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                किन्तु नियत कर्मों का त्याग उचित नहीं है। मोहवश उनका त्याग करना तामस त्याग कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                दुःखमित्येव यत्कर्म कायक्लेशभयात्त्यजेत् |<br>
+                स कृत्वा राजसं त्यागं नैव त्यागफलं लभेत् || 18.8 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                He who abandons prescribed duty because it is troublesome or out of fear of bodily discomfort, does so in the mode of passion (rajas) and does not gain the merit of renunciation.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जो मनुष्य केवळ कष्ट किंवा शारीरिक वेदनेच्या भीतीने कर्माचा त्याग करतो, तो राजस त्याग मानला जातो आणि त्याला त्यागाचे फळ मिळत नाही.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो मनुष्य केवल कष्ट या शरीर की पीड़ा के भय से कर्म का त्याग करता है, वह राजस त्याग कहलाता है और उसे त्याग का फल नहीं मिलता।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                कार्यमित्येव यत्कर्म नियतं क्रियतेऽर्जुन |<br>
+                सङ्गं त्यक्त्वा फलं चैव स त्यागः सात्त्विको मतः || 18.9 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                O Arjuna, when one performs prescribed duty simply because it ought to be done, abandoning attachment and desire for rewards, such renunciation is regarded as sattvic (in the mode of goodness).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे अर्जुना, जो मनुष्य नियत कर्म केवळ कर्तव्य म्हणून आसक्ती आणि फळाची इच्छा न ठेवता करतो, त्याचा त्याग सात्त्विक समजला जातो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे अर्जुन! जो मनुष्य नियत कर्म को केवल कर्तव्य समझकर, आसक्ति और फल की इच्छा का त्याग करके करता है, उसका त्याग सात्त्विक माना गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                न द्वेष्ट्यकुशलं कर्म कुशले नानुषज्जते |<br>
+                त्यागी सत्त्वसमाविष्टो मेधावी छिन्नसंशयः || 18.10 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                The intelligent renouncer, imbued with purity, neither hates unproductive work nor is attached to productive work; he is free from all doubts.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                सात्त्विक त्यागी बुद्धिमान असतो, तो निष्फळ कर्माचा द्वेष करत नाही आणि फलदायी कर्माशी आसक्त होत नाही; त्याचे सर्व संशय दूर झालेले असतात.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                सात्त्विक त्यागी बुद्धिमान होता है, वह निष्फल कर्म से द्वेष नहीं करता और फलदायी कर्म में आसक्त नहीं होता; उसके सभी संशय नष्ट हो जाते हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                न हि देहभृता शक्यं त्यक्तुं कर्माण्यशेषतः |<br>
+                यस्तु कर्मफलत्यागी स त्यागीत्यभिधीयते || 18.11 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Indeed, it is not possible for an embodied being to renounce all actions entirely; but he who renounces the fruits of action is truly called a renouncer.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                देहधारी जीवासाठी सर्व कर्मांचा पूर्णपणे त्याग करणे शक्य नाही; पण जो कर्मफळाचा त्याग करतो, तोच खरा त्यागी आहे.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                देहधारी जीव के लिए सभी कर्मों का पूर्ण त्याग करना संभव नहीं है; लेकिन जो कर्मों के फल का त्याग करता है, वही सच्चा त्यागी कहलाता है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                अनिष्टमिष्टं मिश्रं च त्रिविधं कर्मणः फलम् |<br>
+                भवत्यत्यागिनां प्रेत्य न तु संन्यासिनां क्वचित् || 18.12 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                The threefold fruit of action—undesirable, desirable, and mixed—accrues after death to those who do not renounce, but never to those who renounce.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                अनिष्ट, इष्ट आणि मिश्र असे कर्मांचे तीन प्रकारचे फळ त्याग न करणाऱ्यांना मृत्यूनंतर मिळते; पण संन्यासीला कधीच मिळत नाही.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                अनिष्ट, इष्ट और मिश्र—ये तीन प्रकार के कर्मफल त्याग न करने वालों को मृत्यु के बाद प्राप्त होते हैं, परंतु संन्यासियों को कभी नहीं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                पञ्चैतानि महाबाहो कारणानि निबोध मे |<br>
+                साङ्ख्ये कृतान्ते प्रोक्तानि सिद्धये सर्वकर्मणाम् || 18.13 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                O mighty-armed Arjuna, learn from Me the five causes for the accomplishment of all actions, as declared in the Sankhya philosophy.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे महाबाहो, सर्व कर्मांच्या सिद्धीसाठी सांगितलेली पाच कारणे तू माझ्याकडून जाणून घे, जी सांख्य शास्त्रात सांगितली आहेत.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे महाबाहु! सभी कर्मों की सिद्धि के लिए जो पाँच कारण हैं, उन्हें सांख्य शास्त्र में बताए अनुसार मुझसे सुनो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                अधिष्ठानं तथा कर्ता करणं च पृथग्विधम् |<br>
+                विविधाश्च पृथक्चेष्टा दैवं चैवात्र पञ्चमम् || 18.14 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                The body, the doer, the various senses, the different kinds of effort, and, fifth, destiny—these are the five causes of action.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                अधिष्ठान (शरीर), कर्ता, विविध प्रकारची करण (इंद्रिये), वेगवेगळ्या प्रकारच्या चेष्टा आणि पाचवे म्हणजे दैव—ही पाच कारणे आहेत.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                अधिष्ठान (शरीर), कर्ता, भिन्न-भिन्न करण (इंद्रियाँ), विविध प्रकार की चेष्टाएँ और पाँचवाँ दैव—ये पाँच कारण हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                शरीरवाङ्मनोभिर्यत्कर्म प्रारभते नरः |<br>
+                न्याय्यं वा विपरीतं वा पञ्चैते तस्य हेतवः || 18.15 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Whatever action a person performs with body, speech, or mind—whether right or wrong—these five are its causes.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                मनुष्य शरीर, वाणी किंवा मनाने जे काही कर्म करतो—ते योग्य असो वा अयोग्य—त्याची ही पाच कारणे आहेत.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                मनुष्य जो भी कर्म शरीर, वाणी या मन से करता है—चाहे वह उचित हो या अनुचित—उसके ये पाँच कारण हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                तत्रैवं सति कर्तारमात्मानं केवलं तु यः |<br>
+                पश्यत्यकृतबुद्धित्वान्न स पश्यति दुर्मतिः || 18.16 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Therefore, he who sees the self as the sole agent, due to unrefined understanding, does not see truly and has a distorted mind.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                म्हणून जो मनुष्य केवळ स्वतःलाच कर्ता मानतो, त्याची बुद्धी अपूर्ण असल्यामुळे तो खरे पाहत नाही; त्याची बुद्धी चुकीची आहे.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                इसलिए जो मनुष्य केवल आत्मा को ही कर्ता मानता है, उसकी बुद्धि अपूर्ण होने के कारण वह सही नहीं देखता; उसकी बुद्धि विकृत है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                यस्य नाहंकृतो भावो बुद्धिर्यस्य न लिप्यते |<br>
+                हत्वापि स इमाँल्लोकान्न हन्ति न निबध्यते || 18.17 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                He who is free from the notion of ego, whose intellect is not tainted, even if he kills these people, he does not kill and is not bound.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                ज्याच्या मनात अहंभाव नाही आणि ज्याची बुद्धी कलुषित नाही, तो या लोकांना मारला तरीही तो मारत नाही आणि त्याला बंधन येत नाही.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जिसके मन में अहंकार नहीं है और जिसकी बुद्धि कलुषित नहीं है, वह इन लोगों को मारता हुआ भी न तो मारता है और न ही बंधता है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                ज्ञानं ज्ञेयं परिज्ञाता त्रिविधा कर्मचोदना |<br>
+                करणं कर्म कर्तेति त्रिविधः कर्मसंग्रहः || 18.18 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Knowledge, the object of knowledge, and the knower—these are the threefold impetus to action; the instrument, the action, and the doer are the threefold constituents of action.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                ज्ञान, ज्ञेय आणि ज्ञाता—ही कर्माची तीन प्रेरणा आहेत; करण, कर्म आणि कर्ता—हे कर्माचे तीन घटक आहेत.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                ज्ञान, ज्ञेय और ज्ञाता—ये तीन प्रकार की कर्म की प्रेरणाएँ हैं; करण, कर्म और कर्ता—ये कर्म के तीन प्रकार के संग्रह हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                ज्ञानं कर्म च कर्ता च त्रिधैव गुणभेदतः |<br>
+                प्रोच्यते गुणसंख्याने यथावच्छृणु तान्यपि || 18.19 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Knowledge, action, and the doer are declared in the philosophy of the gunas (qualities) to be of three kinds according to the modes of nature. Hear about them as well.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                ज्ञान, कर्म आणि कर्ता—हे गुणांच्या भेदाने तीन प्रकारचे सांगितले आहेत. ते मी तुला सांगतो, नीट ऐक.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                ज्ञान, कर्म और कर्ता—ये गुणों के भेद से तीन प्रकार के कहे गए हैं। उन्हें भी सुनो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                सर्वभूतेषु येनैकं भावमव्ययमीक्षते |<br>
+                अविभक्तं विभक्तेषु तज्ज्ञानं विद्धि सात्त्विकम् || 18.20 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That knowledge by which one sees the one imperishable reality in all beings, undivided in the divided, know that knowledge to be sattvic (in the mode of goodness).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                ज्याच्या द्वारे सर्व प्राण्यांमध्ये एक अविनाशी तत्त्व पाहिले जाते, विभागलेल्या गोष्टींमध्ये अविभक्तपणा पाहिला जातो, ते ज्ञान सात्त्विक समज.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जिसके द्वारा सभी प्राणियों में एक अविनाशी तत्त्व देखा जाता है, विभाजित में अविभक्त देखा जाता है, वह ज्ञान सात्त्विक जानो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                पृथक्त्वेन तु यज्ज्ञानं नानाभावान्पृथग्विधान् |<br>
+                वेत्ति सर्वेषु भूतेषु तज्ज्ञानं विद्धि राजसम् || 18.21 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                But that knowledge which sees in all beings various entities of different kinds as separate from one another, know that knowledge to be rajasic (in the mode of passion).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                पण जे ज्ञान सर्व प्राण्यांमध्ये वेगवेगळ्या प्रकारचे वेगळे भाव पाहते, ते ज्ञान राजस समज.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                परंतु जो ज्ञान सभी प्राणियों में विभिन्न प्रकार के भिन्न-भिन्न भाव देखता है, वह ज्ञान राजस जानो।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                यत्तु कृत्स्नवदेकस्मिन्कार्ये सक्तमहैतुकम् |<br>
+                अतत्त्वार्थवदल्पं च तत्तामसमुदाहृतम् || 18.22 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                But that knowledge which clings to one single effect as if it were the whole, without reason and without understanding the truth, and which is trivial—such knowledge is declared to be tamasic (in the mode of ignorance).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                पण जे ज्ञान एका गोष्टीला सर्वकाही मानते, कारणाशिवाय, सत्य न समजता आणि अत्यंत क्षुल्लक असते, ते तामस ज्ञान समजले जाते.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                परंतु जो ज्ञान बिना कारण के, सत्य को न समझकर, एक ही कार्य में सब कुछ मानता है और जो तुच्छ है, वह तामस ज्ञान कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                नियतं सङ्गरहितमरागद्वेषतः कृतम् |<br>
+                अफलप्रेप्सुना कर्म यत्तत्सात्त्विकमुच्यते || 18.23 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Action that is prescribed, performed without attachment, without love or hatred, and without desire for results, is said to be sattvic (in the mode of goodness).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जे नियत कर्म आसक्ती, राग-द्वेष आणि फळाची इच्छा न ठेवता केले जाते, ते सात्त्विक कर्म समजले जाते.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो नियत कर्म आसक्ति, राग-द्वेष और फल की इच्छा के बिना किया जाता है, वह सात्त्विक कर्म कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                यत्तु कामेप्सुना कर्म साहंकारेण वा पुनः |<br>
+                क्रियते बहुलायासं तद्राजसमुदाहृतम् || 18.24 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                But action performed with great effort by one seeking to gratify desires, or with a sense of ego, is declared to be rajasic (in the mode of passion).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जे कर्म मोठ्या प्रयत्नाने, इच्छापूर्ती किंवा अहंकारासाठी केले जाते, ते राजस कर्म समजले जाते.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो कर्म अत्यधिक प्रयास से, इच्छापूर्ति या अहंकार के साथ किया जाता है, वह राजस कर्म कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                अनुबन्धं क्षयं हिंसामनपेक्ष्य च पौरुषम् |<br>
+                मोहादारभ्यते कर्म यत्तत्तामसमुच्यते || 18.25 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That action which is undertaken from delusion, without regard for consequences, loss, injury, or one's own ability, is said to be tamasic (in the mode of ignorance).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जे कर्म मोहामुळे, परिणाम, हानी, इजा किंवा स्वतःच्या क्षमतेची पर्वा न करता केले जाते, ते तामस कर्म समजले जाते.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो कर्म मोहवश, परिणाम, हानि, हिंसा या अपनी सामर्थ्य की चिंता किए बिना किया जाता है, वह तामस कर्म कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                मुक्तसङ्गोऽनहंवादी धृत्युत्साहसमन्वितः |<br>
+                सिद्ध्यसिद्ध्योर्निर्विकारः कर्ता सात्त्विक उच्यते || 18.26 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                The doer who is free from attachment and ego, endowed with firmness and enthusiasm, and unaffected by success or failure, is said to be sattvic (in the mode of goodness).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जो कर्ता आसक्ती आणि अहंकारापासून मुक्त आहे, धैर्य आणि उत्साहाने युक्त आहे, आणि यश-अपयशाने विचलित होत नाही, तो सात्त्विक कर्ता समजला जातो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो कर्ता आसक्ति और अहंकार से मुक्त है, धैर्य और उत्साह से युक्त है, और सिद्धि-असिद्धि में समान रहता है, वह सात्त्विक कर्ता कहा गया है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                रागी कर्मफलप्रेप्सुर्लुब्धो हिंसात्मकोऽशुचिः |<br>
+                हर्षशोकान्वितः कर्ता राजसः परिकीर्तितः || 18.27 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                The doer who is attached, seeks rewards, greedy, violent, impure, and moved by joy and sorrow, is said to be rajasic (in the mode of passion).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जो कर्ता आसक्त, फळाची इच्छा करणारा, लोभी, हिंसक, अशुचित्व असलेला आणि आनंद-दुःखाने प्रभावित होणारा आहे, तो राजस कर्ता समजला जातो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो कर्ता आसक्त, फल की इच्छा करने वाला, लोभी, हिंसक, अशुद्ध और हर्ष-शोक से युक्त है, वह राजस कर्ता कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                अयुक्तः प्राकृतः स्तब्धः शठो नैष्कृतिकोऽलसः |<br>
+                विषादी दीर्घसूत्री च कर्ता तामस उच्यते || 18.28 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                The doer who is unsteady, vulgar, arrogant, deceitful, malicious, lazy, despondent, and procrastinating is said to be tamasic (in the mode of ignorance).
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जो कर्ता अस्थिर, मूर्ख, गर्विष्ठ, कपटी, दुष्ट, आळशी, निराश आणि काम टाळणारा आहे, तो तामस कर्ता समजला जातो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो कर्ता अस्थिर, मूर्ख, अहंकारी, कपटी, दुष्ट, आलसी, विषादयुक्त और काम टालने वाला है, वह तामस कर्ता कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                बुद्धेर्भेदं धृतेश्चैव गुणतस्त्रिविधं शृणु |<br>
+                प्रोच्यमानमशेषेण पृथक्त्वेन धनञ्जय || 18.29 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                O Dhananjaya, now hear fully and distinctly the threefold division of intellect and firmness, according to the modes of nature.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे धनंजया, बुद्धी आणि धैर्याचे गुणांनुसार तीन प्रकार मी तुला पूर्णपणे वेगळेपणाने सांगतो, ते ऐक.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे धनंजय! अब बुद्धि और धृति के गुणों के अनुसार तीन प्रकार को संपूर्ण रूप से पृथक्-पृथक् सुनो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                प्रवृत्तिं च निवृत्तिं च कार्याकार्ये भयाभये |<br>
+                बन्धं मोक्षं च या वेत्ति बुद्धिः सा पार्थ सात्त्विकी || 18.30 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That intellect which knows the path of action and renunciation, what ought to be done and what ought not to be done, fear and fearlessness, bondage and liberation, is sattvic, O Partha.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जी बुद्धी प्रवृत्ती-निवृत्ती, कर्तव्य-अकर्तव्य, भय-अभय, बंधन-मोक्ष यांचे ज्ञान देते, ती सात्त्विक बुद्धी आहे, हे पार्थ.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो बुद्धि प्रवृत्ति और निवृत्ति, कर्तव्य-अकर्तव्य, भय-अभय, बंधन और मोक्ष को जानती है, वह सात्त्विक बुद्धि है, हे पार्थ।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                यया धर्ममधर्मं च कार्यं चाकार्यमेव च |<br>
+                अयथावत्प्रजानाति बुद्धिः सा पार्थ राजसी || 18.31 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That intellect, O Partha, which incorrectly distinguishes between righteousness and unrighteousness, and what ought to be done and ought not to be done, is rajasic.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जी बुद्धी धर्म-अधर्म, कर्तव्य-अकर्तव्य यांचे अयोग्य ज्ञान देते, ती राजस बुद्धी आहे, हे पार्थ.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे पार्थ! जो बुद्धि धर्म-अधर्म, कर्तव्य-अकर्तव्य को यथार्थ रूप से नहीं जानती, वह राजस बुद्धि है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                अधर्मं धर्ममिति या मन्यते तमसावृता |<br>
+                सर्वार्थान्विपरीतांश्च बुद्धिः सा पार्थ तामसी || 18.32 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That intellect, O Partha, which, enveloped in darkness, regards unrighteousness as righteousness and sees all things in a perverted way, is tamasic.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जी बुद्धी अज्ञानाने झाकलेली आहे आणि अधर्माला धर्म समजते, तसेच सर्व गोष्टी उलटपणे पाहते, ती तामस बुद्धी आहे, हे पार्थ.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे पार्थ! जो बुद्धि अज्ञान से ढकी हुई अधर्म को धर्म मानती है और सभी बातों को विपरीत रूप में देखती है, वह तामस बुद्धि है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                धृत्या यया धारयते मनःप्राणेन्द्रियक्रियाः |<br>
+                योगेनाव्यभिचारिण्या धृतिः सा पार्थ सात्त्विकी || 18.33 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That unwavering resolve by which one controls the activities of the mind, life, and senses through yoga, O Partha, is sattvic.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जी धैर्याने मन, प्राण आणि इंद्रियांच्या क्रिया योगाने नियंत्रित केली जाते, ती सात्त्विक धृति आहे, हे पार्थ.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे पार्थ! जो धैर्य योग के द्वारा मन, प्राण और इंद्रियों की क्रियाओं को अविचलित रूप से नियंत्रित करता है, वह सात्त्विक धृति है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                यया तु धर्मकामार्थान्धृत्या धारयतेऽर्जुन |<br>
+                प्रसङ्गेन फलाकाङ्क्षी धृतिः सा पार्थ राजसी || 18.34 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                But the resolve by which one holds fast to duty, pleasure, and wealth, desiring their fruits, O Arjuna, is rajasic.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जी धृति धर्म, काम आणि अर्थ यांना फळाची इच्छा ठेवून धरते, ती राजस धृति आहे, हे अर्जुना.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे अर्जुन! जो धैर्य धर्म, काम और अर्थ को फल की इच्छा से धारण करता है, वह राजस धृति है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                यया स्वप्नं भयं शोकं विषादं मदमेव च |<br>
+                न विमुञ्चति दुर्मेधा धृतिः सा पार्थ तामसी || 18.35 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That persistence by which a foolish person does not give up sleep, fear, grief, despondency, and intoxication, O Partha, is tamasic.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जी धृति मूर्ख माणूस झोप, भीती, शोक, निराशा आणि मद्यपान यातून सोडत नाही, ती तामस धृति आहे, हे पार्थ.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे पार्थ! जो मूर्ख व्यक्ति स्वप्न, भय, शोक, विषाद और मद को नहीं छोड़ता, वह तामस धृति है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                सुखं त्विदानीं त्रिविधं शृणु मे भरतर्षभ |<br>
+                अभ्यासाद्रमते यत्र दुःखान्तं च निगच्छति || 18.36 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Now hear from Me, O best of the Bharatas, the three kinds of happiness in which one delights by practice and comes to the end of suffering.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे भरतश्रेष्ठ, आता मी तुला सुखाचे तीन प्रकार सांगतो, ज्यात सरावाने रममाण होऊन दुःखाचा अंत होतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे भरतश्रेष्ठ! अब मुझसे सुख के तीन प्रकार सुनो, जिसमें अभ्यास से रमण करके मनुष्य दुःख का अंत कर लेता है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                यत्तदग्रे विषमिव परिणामेऽमृतोपमम् |<br>
+                तत्सुखं सात्त्विकं प्रोक्तमात्मबुद्धिप्रसादजम् || 18.37 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That which at first is like poison but at the end is like nectar, born of the clarity of self-knowledge, is said to be sattvic happiness.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जे प्रारंभी विषासारखे वाटते पण शेवटी अमृतासारखे होते, आत्मबुद्धीच्या प्रसादातून उत्पन्न होते, ते सात्त्विक सुख समजले जाते.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो सुख प्रारंभ में विष के समान और परिणाम में अमृत के समान होता है, जो आत्मबुद्धि की प्रसन्नता से उत्पन्न होता है, वह सात्त्विक सुख कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                विषयेन्द्रियसंयोगाद्यत्तदग्रेऽमृतोपमम् |<br>
+                परिणामे विषमिव तत्सुखं राजसं स्मृतम् || 18.38 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That happiness which arises from the contact of the senses with their objects, which at first feels like nectar but in the end is like poison, is declared to be rajasic.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जे सुख इंद्रियांच्या विषयांशी संयोगाने मिळते, जे प्रारंभी अमृतासारखे वाटते पण शेवटी विषासारखे होते, ते राजस सुख समजले जाते.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो सुख इंद्रियों के विषयों के संयोग से उत्पन्न होता है, जो प्रारंभ में अमृत के समान और परिणाम में विष के समान होता है, वह राजस सुख कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                यदग्रे चानुबन्धे च सुखं मोहनमात्मनः |<br>
+                निद्रालस्यप्रमादोत्थं तत्तामसमुदाहृतम् || 18.39 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                That happiness which both at the beginning and in its result deludes the self, arising from sleep, indolence, and negligence, is said to be tamasic.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जे सुख प्रारंभ आणि शेवटी आत्म्याला मोहात टाकते, झोप, आळस आणि प्रमादातून उत्पन्न होते, ते तामस सुख समजले जाते.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो सुख प्रारंभ और परिणाम दोनों में आत्मा को मोहित करता है, जो निद्रा, आलस्य और प्रमाद से उत्पन्न होता है, वह तामस सुख कहा गया है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                न तदस्ति पृथिव्यां वा दिवि देवेषु वा पुनः |<br>
+                सत्त्वं प्रकृतिजैर्मुक्तं यदेभिः स्यात्त्रिभिर्गुणैः || 18.40 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                There is no being on earth or even among the gods in heaven who is free from these three modes born of nature.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                पृथ्वीवर किंवा देवांमध्येही असे कोणतेही सत्त्व नाही की जे या प्रकृतीने उत्पन्न झालेल्या तीन गुणांपासून मुक्त आहे.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                पृथ्वी पर या स्वर्ग के देवताओं में भी ऐसा कोई नहीं है जो प्रकृति से उत्पन्न इन तीन गुणों से मुक्त हो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                ब्राह्मणक्षत्रियविशां शूद्राणां च परन्तप |<br>
+                कर्माणि प्रविभक्तानि स्वभावप्रभवैर्गुणैः || 18.41 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                O Arjuna, the duties of Brahmanas, Kshatriyas, Vaishyas, and Shudras are divided according to the qualities born of their own nature.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे परंतप, ब्राह्मण, क्षत्रिय, वैश्य आणि शूद्र यांच्या कर्मे त्यांच्या स्वभावातून उत्पन्न झालेल्या गुणांनुसार विभागली आहेत.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे परंतप! ब्राह्मण, क्षत्रिय, वैश्य और शूद्रों के कर्म उनके स्वभाव से उत्पन्न गुणों के अनुसार विभाजित किए गए हैं।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                शमो दमस्तपः शौचं क्षान्तिरार्जवमेव च |<br>
+                ज्ञानं विज्ञानमास्तिक्यं ब्रह्मकर्म स्वभावजम् || 18.42 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Serenity, self-control, austerity, purity, forgiveness, uprightness, knowledge, wisdom, and faith—these are the natural duties of the Brahmanas, born of their own nature.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                मनःशांती, इंद्रियसंयम, तप, शुद्धता, क्षमा, सरळपणा, ज्ञान, विज्ञान आणि आस्तिकता—हे ब्राह्मणांचे स्वभावतः कर्म आहेत.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                मन की शांति, इंद्रियों का संयम, तप, शुद्धता, क्षमा, सरलता, ज्ञान, विज्ञान और आस्तिकता—ये ब्राह्मण के स्वभाव से उत्पन्न कर्म हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                शौर्यं तेजो धृतिर्दाक्ष्यं युद्धे चाप्यपलायनम् |<br>
+                दानमीश्वरभावश्च क्षात्रं कर्म स्वभावजम् || 18.43 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Heroism, vigor, determination, resourcefulness, not fleeing in battle, generosity, and leadership—these are the natural duties of Kshatriyas, born of their own nature.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                शौर्य, तेज, धैर्य, कौशल्य, युद्धातून न पळणे, दान आणि नेतृत्व—हे क्षत्रियांचे स्वभावतः कर्म आहेत.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                शौर्य, तेज, धैर्य, चातुर्य, युद्ध में न भागना, दान और नेतृत्व—ये क्षत्रिय के स्वभाव से उत्पन्न कर्म हैं।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                कृषिगौरक्ष्यवाणिज्यं वैश्यकर्म स्वभावजम् |<br>
+                परिचर्यात्मकं कर्म शूद्रस्यापि स्वभावजम् || 18.44 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Agriculture, cattle rearing, and trade are the natural duties of Vaishyas; service is the natural duty of Shudras, born of their own nature.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                शेती, गोपालन आणि व्यापार हे वैश्यांचे स्वभावतः कर्म आहेत; सेवा हे शूद्रांचे स्वभावतः कर्म आहे.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                कृषि, गौ-रक्षा और व्यापार—ये वैश्य के स्वभाव से उत्पन्न कर्म हैं; सेवा करना शूद्र का स्वभावजन्य कर्म है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                स्वे स्वे कर्मण्यभिरतः संसिद्धिं लभते नरः |<br>
+                स्वकर्मनिरतः सिद्धिं यथा विन्दति तच्छृणु || 18.45 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                By being devoted to his own duty, every person attains perfection. Now hear how one who is devoted to his own duty attains perfection.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                प्रत्येक मनुष्य आपल्या स्वधर्मात रमून सिद्धी प्राप्त करतो. स्वधर्मात रमून कशी सिद्धी मिळते, ते ऐक.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                प्रत्येक मनुष्य अपने स्वधर्म में लगे रहकर सिद्धि प्राप्त करता है। अपने कर्म में लगे रहकर सिद्धि कैसे मिलती है, वह सुनो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                यतः प्रवृत्तिर्भूतानां येन सर्वमिदं ततम् |<br>
+                स्वकर्मणा तमभ्यर्च्य सिद्धिं विन्दति मानवः || 18.46 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                By worshipping Him, from whom all beings originate and by whom all this is pervaded, through the performance of one's own duty, a person attains perfection.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                ज्याच्यापासून सर्व प्राणी उत्पन्न झाले आणि ज्याने हे सर्व व्यापले आहे, त्याची आपल्या कर्माने पूजा करून मनुष्य सिद्धी प्राप्त करतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जिससे सभी प्राणी उत्पन्न हुए हैं और जिससे यह सब व्याप्त है, उसकी अपने कर्म द्वारा पूजा करके मनुष्य सिद्धि प्राप्त करता है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् |<br>
+                स्वभावनियतं कर्म कुर्वन्नाप्नोति किल्बिषम् || 18.47 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Better is one's own duty, though imperfect, than the duty of another well performed. By performing the duty prescribed by one's own nature, one does not incur sin.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                स्वतःचा धर्म दोषयुक्त असला तरी दुसऱ्याचा उत्तम प्रकारे केलेला धर्मापेक्षा श्रेष्ठ आहे. स्वभावाने ठरलेले कर्म केल्याने पाप लागत नाही.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                अपने दोषयुक्त धर्म का पालन करना, दूसरों के उत्तम धर्म का पालन करने से श्रेष्ठ है। स्वभाव से निर्धारित कर्म करने पर पाप नहीं लगता।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                सहजं कर्म कौन्तेय सदोषमपि न त्यजेत् |<br>
+                सर्वारम्भा हि दोषेण धूमेनाग्निरिवावृताः || 18.48 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                One should not abandon the work born of one's own nature, even if it is flawed, O Kaunteya, for all undertakings are clouded by defects, as fire is covered by smoke.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे कौन्तेय, स्वभावाने आलेले कर्म दोषयुक्त असले तरी त्याचा त्याग करू नये; कारण सर्व आरंभ दोषांनी झाकलेले असतात, जसे अग्नी धुराने झाकलेला असतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे कौन्तेय! स्वभाव से उत्पन्न कर्म को दोषयुक्त होने पर भी नहीं छोड़ना चाहिए, क्योंकि सभी कार्य दोष से ढके होते हैं, जैसे अग्नि धुएँ से ढकी होती है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                असक्तबुद्धिः सर्वत्र जितात्मा विगतस्पृहः |<br>
+                नैष्कर्म्यसिद्धिं परमां संन्यासेनाधिगच्छति || 18.49 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                He whose intellect is unattached everywhere, who has subdued his self and is free from desires, attains by renunciation the supreme perfection of freedom from action.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                ज्याची बुद्धी सर्वत्र आसक्तीपासून मुक्त आहे, ज्याने मन जिंकले आहे आणि इच्छा नाही, तो संन्यासाने निष्कर्म्याची परम सिद्धी प्राप्त करतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जिसकी बुद्धि सर्वत्र आसक्ति से रहित है, जिसने आत्मा को जीत लिया है और जिसकी इच्छाएँ समाप्त हो गई हैं, वह संन्यास द्वारा निष्कर्मता की परम सिद्धि प्राप्त करता है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                सिद्धिं प्राप्तो यथा ब्रह्म तथाप्नोति निबोध मे |<br>
+                समासेनैव कौन्तेय निष्ठा ज्ञानस्य या परा || 18.50 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Learn from Me briefly, O Kaunteya, how one who has attained perfection reaches Brahman, the supreme state of knowledge.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे कौन्तेय, ज्याने सिद्धी प्राप्त केली आहे, तो ब्रह्म कसे प्राप्त करतो, ज्ञानाची सर्वोच्च स्थिती कशी मिळते, ते मी तुला संक्षिप्तपणे सांगतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे कौन्तेय! जिसने सिद्धि प्राप्त कर ली है, वह ब्रह्म को कैसे प्राप्त करता है, ज्ञान की परम स्थिति कैसे मिलती है, यह संक्षेप में मुझसे सुनो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                बुद्ध्या विशुद्धया युक्तो धृत्यात्मानं नियम्य च |<br>
+                शब्दादीन्विषयांस्त्यक्त्वा रागद्वेषौ व्युदस्य च || 18.51 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Endowed with a pure intellect, controlling the self with firmness, giving up objects of sense and casting aside attraction and aversion...
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                शुद्ध बुद्धीने युक्त, धैर्याने आत्म्याला नियंत्रित करून, विषयांचा त्याग करून, राग-द्वेष दूर करून...
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                शुद्ध बुद्धि से युक्त होकर, धैर्यपूर्वक आत्मा को नियंत्रित करके, विषयों का त्याग करके, राग-द्वेष को दूर करके...
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                विविक्तसेवी लघ्वाशी यतवाक्कायमानसः |<br>
+                ध्यानयोगपरो नित्यं वैराग्यं समुपाश्रितः || 18.52 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Living in solitude, eating lightly, controlling speech, body, and mind, always engaged in meditation and cultivating dispassion...
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                एकांतवास करणारा, अल्पाहार करणारा, वाणी, शरीर आणि मनावर संयम ठेवणारा, नेहमी ध्यानयोगात मग्न आणि वैराग्य धारण करणारा...
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                एकांत में रहने वाला, अल्पाहार करने वाला, वाणी, शरीर और मन को संयमित रखने वाला, सदा ध्यानयोग में तत्पर और वैराग्य धारण करने वाला...
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                अहंकारं बलं दर्पं कामं क्रोधं परिग्रहम् |<br>
+                विमुच्य निर्ममः शान्तो ब्रह्मभूयाय कल्पते || 18.53 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Having abandoned ego, power, arrogance, desire, anger, and possessiveness, free from the notion of 'mine' and at peace, one becomes fit for realization of Brahman.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                अहंकार, बल, दर्प, काम, क्रोध आणि संग्रहाचा त्याग करून, 'माझे'पणाचा अभाव आणि शांतता प्राप्त करून, तो ब्रह्मप्राप्तीसाठी पात्र होतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                अहंकार, बल, दर्प, काम, क्रोध और संग्रह का त्याग कर, 'मेरा' भाव से रहित और शांत होकर, वह ब्रह्म की प्राप्ति के योग्य बनता है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                ब्रह्मभूतः प्रसन्नात्मा न शोचति न काङ्क्षति |<br>
+                समः सर्वेषु भूतेषु मद्भक्तिं लभते पराम् || 18.54 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Becoming Brahman-realized, serene in mind, not grieving or desiring, equal to all beings, one attains supreme devotion to Me.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                ब्रह्मभाव प्राप्त झाल्यावर, प्रसन्नचित्त, शोक आणि इच्छा न करता, सर्व प्राण्यांमध्ये समत्व ठेवून, तो माझी परम भक्ती प्राप्त करतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                ब्रह्मभाव को प्राप्त कर, प्रसन्नचित्त, न शोक करता है न इच्छा करता है, सभी प्राणियों में समभाव रखता है, और मेरी परम भक्ति प्राप्त करता है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                भक्त्या मामभिजानाति यावान्यश्चास्मि तत्त्वतः |<br>
+                ततो मां तत्त्वतो ज्ञात्वा विशते तदनन्तरम् || 18.55 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                By devotion, one truly knows Me—who I am and what My reality is. Knowing Me thus, one enters into Me immediately.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                भक्तीनेच मनुष्य मला तत्त्वतः ओळखतो—मी कोण आहे आणि माझे स्वरूप काय आहे. अशा प्रकारे मला ओळखून तो लगेचच माझ्यात विलीन होतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                भक्ति के द्वारा मनुष्य मुझे तत्त्व से जानता है—मैं कौन हूँ और मेरा स्वरूप क्या है। इस प्रकार मुझे जानकर वह तुरंत मुझमें लीन हो जाता है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                सर्वकर्माण्यपि सदा कुर्वाणो मद्व्यपाश्रयः |<br>
+                मत्प्रसादादवाप्नोति शाश्वतं पदमव्ययम् || 18.56 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Even while always performing all actions, one who takes refuge in Me attains the eternal, imperishable abode by My grace.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                सर्व कर्मे नेहमी करत असतानाही, जो माझ्यावर आश्रय घेतो, तो माझ्या कृपेने शाश्वत, अविनाशी पद प्राप्त करतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो मनुष्य सदा सभी कर्म करता हुआ भी मुझमें आश्रय लेता है, वह मेरी कृपा से शाश्वत, अविनाशी पद को प्राप्त करता है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                चेतसा सर्वकर्माणि मयि संन्यस्य मत्परः |<br>
+                बुद्धियोगमुपाश्रित्य मच्चित्तः सततं भव || 18.57 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Mentally renouncing all actions to Me, regarding Me as the Supreme, resorting to the yoga of intellect, always fix your mind on Me.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                सर्व कर्मे मनाने माझ्यात अर्पण करून, मला परम मानून, बुद्धियोगाचा आश्रय घे, आणि नेहमी माझ्यात चित्त ठेव.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                सभी कर्मों को मन से मुझमें समर्पित करके, मुझे परम मानकर, बुद्धियोग का आश्रय लेकर, सदा अपना चित्त मुझमें लगाओ।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                मच्चित्तः सर्वदुर्गाणि मत्प्रसादात्तरिष्यसि |<br>
+                अथ चेत्त्वमहंकारान्न श्रोष्यसि विनङ्क्ष्यसि || 18.58 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Fixing your mind on Me, you will overcome all obstacles by My grace. But if, out of ego, you do not listen, you will perish.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                माझ्यात चित्त ठेवून, माझ्या कृपेने तू सर्व अडचणी पार करशील; पण अहंकाराने ऐकले नाहीस तर तू नष्ट होशील.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                मुझमें चित्त लगाकर मेरी कृपा से तुम सभी कठिनाइयों को पार कर लोगे; लेकिन यदि अहंकारवश नहीं सुनोगे तो नष्ट हो जाओगे।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                यदहंकारमाश्रित्य न योत्स्य इति मन्यसे |<br>
+                मिथ्यैष व्यवसायस्ते प्रकृतिस्त्वां नियोक्ष्यति || 18.59 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                If, relying on ego, you think “I will not fight,” your resolve is in vain; your own nature will compel you.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जर तू अहंकाराने “मी युद्ध करणार नाही” असे म्हणतोस, तर तुझे हे निश्चय व्यर्थ आहे; तुझी प्रकृती तुला भाग पाडेल.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                यदि अहंकार के कारण तुम सोचते हो “मैं युद्ध नहीं करूंगा”, तो यह तुम्हारा संकल्प मिथ्या है; तुम्हारी प्रकृति तुम्हें बाध्य करेगी।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                स्वभावजेन कौन्तेय निबद्धः स्वेन कर्मणा |<br>
+                कर्तुं नेच्छसि यन्मोहात्करिष्यस्यवशोऽपि तत् || 18.60 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                O Kaunteya, bound by your own karma born of your nature, that which you do not wish to do out of delusion, you will do helplessly.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे कौन्तेय, स्वभावाने उत्पन्न झालेल्या कर्माने बांधला गेल्याने, मोहामुळे जे करायचे नाही असे वाटते, तेही तू अनिच्छेने करशील.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे कौन्तेय! स्वभाव से उत्पन्न कर्म से बंधे हुए, जो तुम मोहवश नहीं करना चाहते, वह भी तुम विवश होकर करोगे।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                ईश्वरः सर्वभूतानां हृद्देशेऽर्जुन तिष्ठति |<br>
+                भ्रामयन्सर्वभूतानि यन्त्रारूढानि मायया || 18.61 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                The Lord dwells in the hearts of all beings, O Arjuna, causing them to revolve by His maya as if mounted on a machine.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                परमेश्वर सर्व प्राण्यांच्या हृदयात वास करतो, हे अर्जुना, आणि त्यांना आपल्या मायेमुळे यंत्रावर बसल्यासारखे फिरवतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                परमेश्वर सभी प्राणियों के हृदय में स्थित है, हे अर्जुन! और अपनी माया से उन्हें यंत्र पर आरूढ़ की भाँति घुमाता है।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                तमेव शरणं गच्छ सर्वभावेन भारत |<br>
+                तत्प्रसादात्परां शान्तिं स्थानं प्राप्स्यसि शाश्वतम् || 18.62 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Surrender unto Him alone with all your being, O Bharata. By His grace you will attain supreme peace and the eternal abode.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे भारत, सर्व भावाने त्याच्याच शरण जा. त्याच्या कृपेने तू परम शांती आणि शाश्वत स्थान प्राप्त करशील.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे भारत! सम्पूर्ण भाव से उसी की शरण में जाओ। उसकी कृपा से तुम परम शांति और शाश्वत स्थान प्राप्त करोगे।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                इति ते ज्ञानमाख्यातं गुह्याद्गुह्यतरं मया |<br>
+                विमृश्यैतदशेषेण यथेच्छसि तथा कुरु || 18.63 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Thus, I have explained to you the most confidential of all knowledge. Reflect fully on this, and then do as you wish.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                मी तुला सर्वांत गूढ ज्ञान सांगितले आहे. याचा पूर्ण विचार करून, तू इच्छेनुसार कर.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                मैंने तुम्हें यह अत्यंत गूढ़ ज्ञान बताया है। इसे भली-भांति विचार कर, जैसा चाहो वैसा करो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                सर्वगुह्यतमं भूयः शृणु मे परमं वचः |<br>
+                इष्टोऽसि मे दृढमिति ततो वक्ष्यामि ते हितम् || 18.64 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Hear again My supreme, most secret word; because you are dearly beloved to Me, I will tell you what is good for you.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                आता पुन्हा माझे सर्वांत गूढ आणि श्रेष्ठ वचन ऐक; तू मला प्रिय आहेस म्हणून मी तुझे हित सांगतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                अब फिर से मेरा परम गूढ़ वचन सुनो; तुम मुझे अत्यंत प्रिय हो, इसलिए मैं तुम्हारे हित की बात कहता हूँ।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु |<br>
+                मामेवैष्यसि सत्यं ते प्रतिजाने प्रियोऽसि मे || 18.65 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Always think of Me, become My devotee, worship Me, and offer your homage to Me. Thus you will come to Me; I promise you this because you are dear to Me.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                माझा विचार कर, माझा भक्त हो, मला पूज, मला नमस्कार कर; असे केल्याने तू नक्कीच माझ्यात येशील—हे मी तुला सत्य सांगतो, कारण तू मला प्रिय आहेस.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                मेरा स्मरण करो, मेरे भक्त बनो, मेरी पूजा करो, मुझे नमस्कार करो; ऐसा करने से तुम निश्चित ही मेरे पास आओगे—यह मैं तुम्हें सत्य वचन देता हूँ, क्योंकि तुम मुझे प्रिय हो।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज |<br>
+                अहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः || 18.66 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Abandon all varieties of dharma and simply surrender unto Me alone. I will deliver you from all sins; do not grieve.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                सर्व धर्मांचा त्याग करून फक्त माझ्या शरण ये. मी तुला सर्व पापांपासून मुक्त करीन; तू दुःख करू नकोस.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                सभी धर्मों को छोड़कर केवल मेरी शरण में आओ। मैं तुम्हें सभी पापों से मुक्त कर दूँगा; शोक मत करो।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                इदं ते नातपस्काय नाभक्ताय कदाचन |<br>
+                न चाशुश्रूषवे वाच्यं न च मां योऽभ्यसूयति || 18.67 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                This should never be spoken to one who is not austere, not devoted, nor to one who is unwilling to listen, nor to one who finds fault with Me.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे ज्ञान न तपस्वी, न भक्त, न ऐकण्याची इच्छा असणाऱ्या किंवा माझ्यावर दोष ठेवणाऱ्याला कधीही सांगू नये.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                यह उपदेश न तो तप न करने वाले को, न भक्तिहीन को, न सुनने की इच्छा न रखने वाले को, और न ही मेरी निंदा करने वाले को कभी कहना चाहिए।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                य इमं परमं गुह्यं मद्भक्तेष्वभिधास्यति |<br>
+                भक्तिं मयि परां कृत्वा मामेवैष्यत्यसंशयः || 18.68 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                He who teaches this supreme secret to My devotees, performing the highest act of devotion to Me, will undoubtedly come to Me.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जो हा परम गूढ उपदेश माझ्या भक्तांना सांगतो, तो माझी परम भक्ती करून निःसंशयपणे माझ्यात येतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो इस परम गूढ़ उपदेश को मेरे भक्तों को सुनाता है, वह मुझमें परम भक्ति करके निःसंदेह मेरे पास आता है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                न च तस्मान्मनुष्येषु कश्चिन्मे प्रियकृत्तमः |<br>
+                भविता न च मे तस्मादन्यः प्रियतरो भुवि || 18.69 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                There is no one among men who does dearer service to Me than he; nor shall there ever be anyone on earth more dear to Me than he.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                अशा मनुष्यापेक्षा मला अधिक प्रिय कार्य करणारा कोणीही नाही; आणि पृथ्वीवर त्याच्यापेक्षा अधिक प्रिय कोणीही होणार नाही.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                ऐसा मनुष्य मुझसे अधिक प्रिय कार्य करने वाला कोई नहीं है; और पृथ्वी पर उससे अधिक प्रिय कोई नहीं होगा।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                अध्येष्यते च य इमं धर्म्यं संवादमावयोः |<br>
+                ज्ञानयज्ञेन तेनाहमिष्टः स्यामिति मे मतिः || 18.70 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                And he who will study this sacred dialogue of ours, by him I shall be worshipped through the sacrifice of knowledge; such is My opinion.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                आणि जो हा आमचा धर्मयुक्त संवाद अभ्यासेल, तो ज्ञानयज्ञाने मला पूजेल—असे माझे मत आहे.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                और जो इस धर्मयुक्त संवाद का अध्ययन करेगा, वह ज्ञानयज्ञ के द्वारा मेरी पूजा करेगा—ऐसा मेरा मत है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                श्रद्धावाननसूयश्च शृणुयादपि यो नरः |<br>
+                सोऽपि मुक्तः शुभाँल्लोकान्प्राप्नुयात्पुण्यकर्मणाम् || 18.71 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Even the man who hears this with faith and without envy, he too, being freed, shall attain the auspicious worlds of those who perform virtuous deeds.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जो मनुष्य श्रद्धेने आणि द्वेष न ठेवता हे ऐकतो, तोही मुक्त होऊन पुण्यकर्म करणाऱ्यांचे शुभ लोक प्राप्त करतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जो मनुष्य श्रद्धा और बिना द्वेष के इसे सुनता है, वह भी मुक्त होकर पुण्यकर्मियों के शुभ लोकों को प्राप्त करता है।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                कच्चिदेतच्छ्रुतं पार्थ त्वयैकाग्रेण चेतसा |<br>
+                कच्चिदज्ञानसंमोहः प्रनष्टस्ते धनञ्जय || 18.72 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                O Partha, have you heard this with a single-pointed mind? Has your ignorance and delusion been destroyed, O Dhananjaya?
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                हे पार्थ, तू हे एकाग्रचित्ताने ऐकलेस का? हे धनंजया, तुझे अज्ञान आणि मोह नष्ट झाले का?
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे पार्थ! क्या तुमने इसे एकाग्रचित्त होकर सुना? हे धनंजय! क्या तुम्हारा अज्ञान और मोह नष्ट हो गया?
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                अर्जुन उवाच |<br>
+                नष्टो मोहः स्मृतिर्लब्धा त्वत्प्रसादान्मयाच्युत |<br>
+                स्थितोऽस्मि गतसन्देहः करिष्ये वचनं तव || 18.73 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Arjuna said: My delusion is destroyed and I have regained my memory by Your grace, O Achyuta. I am firm, free from doubt, and will act according to Your word.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                अर्जुन म्हणाला: अच्युत, तुझ्या कृपेने माझा मोह नष्ट झाला आहे आणि मला स्मृती प्राप्त झाली आहे. मी आता निर्धाराने, संशयमुक्तपणे तुझे वचन पाळीन.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                अर्जुन बोले: अच्युत! आपकी कृपा से मेरा मोह नष्ट हो गया है और मुझे स्मृति प्राप्त हो गई है। मैं अब दृढ़ हूँ, संशय रहित हूँ, और आपके वचन का पालन करूँगा।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                सञ्जय उवाच |<br>
+                इत्यहं वासुदेवस्य पार्थस्य च महात्मनः |<br>
+                संवादमिममश्रौषमद्भुतं रोमहार्षणम् || 18.74 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Sanjaya said: Thus have I heard this wonderful and thrilling dialogue between Vasudeva and the high-souled Arjuna.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                संजय म्हणाला: अशा प्रकारे मी वासुदेव आणि महात्मा पार्थ यांचा हा अद्भुत आणि रोमांचकारी संवाद ऐकला.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                संजय बोले: इस प्रकार मैंने वासुदेव और महात्मा पार्थ का यह अद्भुत और रोमांचकारी संवाद सुना।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                व्यासप्रसादाच्छ्रुतवानेतद्गुह्यमहं परम् |<br>
+                योगं योगेश्वरात्कृष्णात्साक्षात्कथयतः स्वयम् || 18.75 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                By the grace of Vyasa, I have heard this supreme and most secret yoga directly from Krishna, the Lord of Yoga, Himself speaking.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                व्यासांच्या कृपेने मी हा परम गूढ योग स्वतः योगेश्वर कृष्णाकडून ऐकला.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                व्यास की कृपा से मैंने स्वयं योगेश्वर श्रीकृष्ण से यह परम गूढ़ योग सुना।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                राजन्संस्मृत्य संस्मृत्य संवादमिममद्भुतम् |<br>
+                केशवार्जुनयोः पुण्यं हृष्यामि च मुहुर्मुहुः || 18.76 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                O King, remembering again and again this holy and wonderful dialogue between Krishna and Arjuna, I rejoice again and again.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                राजन, केशव आणि अर्जुन यांचा हा पवित्र आणि अद्भुत संवाद पुन्हा पुन्हा आठवून मला वारंवार आनंद होतो.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                हे राजन्! केशव और अर्जुन का यह पवित्र और अद्भुत संवाद बार-बार स्मरण करके मैं बार-बार हर्षित होता हूँ।
+            </p>
+        </div>
+
+        <div class="shloka">
+            <span>
+                तच्च संस्मृत्य संस्मृत्य रूपमत्यद्भुतं हरेः |<br>
+                विस्मयो मे महान् राजन्हृष्यामि च पुनः पुनः || 18.77 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                And remembering again and again that most wonderful form of Hari, great is my amazement, O King, and I rejoice again and again.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                आणि हरीचे ते अद्भुत रूप पुन्हा पुन्हा आठवून मला मोठा विस्मय वाटतो आणि मी पुन्हा पुन्हा आनंदित होतो, हे राजन.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                और भगवान हरि के उस अत्यंत अद्भुत रूप का बार-बार स्मरण करके मुझे महान् विस्मय होता है और मैं बार-बार हर्षित होता हूँ, हे राजन्।
+            </p>
+        </div>
+        <div class="shloka">
+            <span>
+                यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः |<br>
+                तत्र श्रीर्विजयो भूतिर्ध्रुवा नीतिर्मतिर्मम || 18.78 ||
+            </span>
+        </div>
+        <div class="translation">
+            <h2>English Meaning</h2>
+            <p>
+                Wherever there is Krishna, the Lord of Yoga, and Arjuna, the wielder of the bow, there will surely be fortune, victory, prosperity, and sound morality; such is my conviction.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Marathi Meaning</h2>
+            <p>
+                जिथे योगेश्वर कृष्ण आणि धनुर्धारी अर्जुन आहेत, तिथे श्री, विजय, समृद्धी आणि स्थिर नीती असते—हे माझे मत आहे.
+            </p>
+        </div>
+        <div class="translation">
+            <h2>Hindi Meaning</h2>
+            <p>
+                जहाँ योगेश्वर श्रीकृष्ण और धनुर्धारी अर्जुन हैं, वहाँ निश्चित ही श्री, विजय, समृद्धि और अचल नीति रहती है—ऐसा मेरा मत है।
+            </p>
+        </div>
+    </div>
+            
+        </div>
+        <footer>
+       </div> 
+        <p>
+            Bhagavad Gita - Chapter 18 &copy; 2025. All rights reserved.
+        </p>
+    </footer>
+    <style>
+        .footer-link:hover {
+            color: #d35400 !important;
+        }
+    </style>
+   
+ </div>   </body></head></html>

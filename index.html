@@ -1,0 +1,1387 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>BhagavadGeeta Spritual Guide</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+	<body class="is-preload">
+		<!-- Background Music (autoplay, loop, simple) -->
+		<audio id="bg-audio" src="assets/audio/adhurammadhuram.mp3" autoplay loop preload="auto"></audio>
+		<!-- Audio On/Off Floating Button -->
+		<button id="audio-toggle-btn" title="Toggle Music" style="
+			position: fixed;
+			top: 24px;
+			right: 32px;
+			z-index: 10001;
+			background: linear-gradient(135deg, #ffd600 60%, #ff3c00 100%);
+			color: #222;
+			border: none;
+			border-radius: 50%;
+			width: 48px;
+			height: 48px;
+			box-shadow: 0 2px 8px rgba(44,62,80,0.13);
+			font-size: 1.5em;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background 0.18s, box-shadow 0.18s;
+		">
+			<span id="audio-icon" aria-label="Music On" role="img">🔊</span>
+		</button>
+		<script>
+			const audio = document.getElementById('bg-audio');
+			const btn = document.getElementById('audio-toggle-btn');
+			const icon = document.getElementById('audio-icon');
+			let isPlaying = true;
+
+			function updateIcon() {
+				icon.textContent = isPlaying ? '🔊' : '🔇';
+				btn.title = isPlaying ? 'Turn Music Off' : 'Turn Music On';
+			}
+
+			btn.onclick = function() {
+				if (isPlaying) {
+					audio.pause();
+					isPlaying = false;
+				} else {
+					audio.play();
+					isPlaying = true;
+				}
+				updateIcon();
+			};
+
+			// In case autoplay is blocked, update icon
+			audio.onpause = () => { isPlaying = false; updateIcon(); };
+			audio.onplay = () => { isPlaying = true; updateIcon(); };
+
+			// Try to play on user interaction if blocked
+			document.addEventListener('click', function tryPlay() {
+				if (!isPlaying) {
+					audio.play().catch(()=>{});
+				}
+				document.removeEventListener('click', tryPlay);
+			});
+
+			updateIcon();
+		</script>
+<!-- Daily Gita Shloka Floating Box (Top Left Corner) -->
+<style>
+	.shloka-box {
+		position: fixed;
+		top: 24px;
+		left: 24px;
+		background: linear-gradient(135deg, #fffbe6 0%, #ffe0b2 100%);
+		padding: 20px 22px 18px 22px;
+		border-radius: 16px;
+		box-shadow: 0 6px 24px rgba(44, 62, 80, 0.18), 0 1.5px 4px rgba(44,62,80,0.10);
+		max-width: 340px;
+		min-width: 240px;
+		z-index: 10000;
+		border: 1.5px solid #ffe082;
+		font-family: 'Segoe UI', 'Arial', sans-serif;
+		transition: box-shadow 0.2s;
+	}
+	.shloka-box:hover {
+		box-shadow: 0 10px 32px rgba(44, 62, 80, 0.22), 0 2px 8px rgba(44,62,80,0.13);
+	}
+	.shloka-box h3 {
+		margin: 0 0 12px;
+		font-size: 20px;
+		color: #b28704;
+		letter-spacing: 0.5px;
+		font-weight: 700;
+		text-shadow: 0 1px 0 #fffde7;
+	}
+	.shloka-box .shloka-date {
+		font-size: 12px;
+		color: #b28704;
+		margin-bottom: 5px;
+		font-weight: 500;
+		letter-spacing: 0.1px;
+	}
+	.shloka-box p {
+		margin: 6px 0;
+		font-size: 14px;
+		color: #4e3300;
+		line-height: 1.45;
+		word-break: break-word;
+	}
+	.shloka-box #meaning {
+		color: #6d4c00;
+		font-style: italic;
+		font-size: 13px;
+		margin-bottom: 2px;
+	}
+	.buttons {
+		margin-top: 10px;
+		display: flex;
+		gap: 6px;
+		flex-wrap: wrap;
+	}
+	.buttons a, .buttons button {
+		display: inline-block;
+		margin: 0;
+		padding: 6px 12px;
+		font-size: 12px;
+		text-decoration: none;
+		background: linear-gradient(90deg, #25d366 60%, #128c7e 100%);
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-weight: 500;
+		box-shadow: 0 1px 3px rgba(44,62,80,0.07);
+		transition: background 0.18s;
+	}
+	.buttons button {
+		background: linear-gradient(90deg, #d63384 60%, #a8326e 100%);
+	}
+	.buttons a:hover, .buttons button:hover {
+		filter: brightness(1.08);
+		opacity: 0.93;
+	}
+	#copy-status {
+		font-size: 11px;
+		color: #388e3c;
+		margin-top: 4px;
+		min-height: 14px;
+		font-weight: 500;
+		letter-spacing: 0.1px;
+	}
+	#closeShloka {
+		position: absolute;
+		top: 4px;
+		right: 7px;
+		background: none;
+		border: none;
+		font-size: 18px;
+		cursor: pointer;
+		color: #b28704;
+		opacity: 0.7;
+		transition: color 0.15s, opacity 0.15s;
+		font-weight: bold;
+		line-height: 1;
+	}
+	#closeShloka:hover {
+		color: #d63384;
+		opacity: 1;
+	}
+	/* --- New Box Design --- */
+	.shloka-box {
+		position: fixed;
+		top: 30px;
+		left: 50%;
+		transform: translateX(-50%);
+		right: unset;
+		background: linear-gradient(135deg, #232526 0%, #414345 100%);
+		padding: 16px 18px 14px 18px;
+		/* Diamond corners using clip-path */
+		clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
+		box-shadow: 0 8px 28px rgba(30, 30, 30, 0.22), 0 2px 8px rgba(44,62,80,0.13);
+		max-width: 260px;
+		min-width: 160px;
+		z-index: 1002; /* Above logo and header text */
+		border: 2.5px solid #b28704;
+		font-family: 'Segoe UI', 'Arial', sans-serif;
+		transition: box-shadow 0.2s, border 0.2s;
+		overflow: hidden;
+	}
+	.shloka-box:hover {
+		box-shadow: 0 12px 36px rgba(30, 30, 30, 0.28), 0 3px 12px rgba(44,62,80,0.16);
+		border-color: #ffd54f;
+	}
+	.shloka-box h3 {
+		margin: 0 0 8px;
+		font-size: 16px;
+		color: #ffe082;
+		letter-spacing: 0.5px;
+		font-weight: 700;
+		text-shadow: 0 1px 0 #2d2d2d;
+		text-align: center;
+	}
+	.shloka-box .shloka-date {
+		text-align: center;
+		margin-bottom: 6px;
+		font-size: 11px;
+		color: #ffd54f;
+	}
+	.shloka-box #shloka {
+		font-size: 13px;
+		font-weight: 600;
+		color: #fffbe6;
+		text-align: center;
+		margin-bottom: 4px;
+	}
+	.shloka-box #meaning {
+		color: #ffe082;
+		font-style: italic;
+		font-size: 11px;
+		margin-bottom: 2px;
+		text-align: center;
+	}
+	.shloka-box .buttons {
+		justify-content: center;
+	}
+	.buttons a, .buttons button {
+		font-size: 11px;
+		padding: 4px 8px;
+		background: linear-gradient(90deg, #232526 60%, #b28704 100%);
+		color: #ffe082;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-weight: 500;
+		box-shadow: 0 1px 3px rgba(44,62,80,0.07);
+	  
+	}
+	.buttons button {
+		background: linear-gradient(90deg, #232526 60%, #d63384 100%);
+		color: #fffbee;
+	}
+	.buttons a:hover, .buttons button:hover {
+		filter: brightness(1.08);
+		opacity: 0.93;
+	}
+	#copy-status {
+		font-size: 11px;
+		color: #ffd54f;
+		margin-top: 4px;
+		min-height: 14px;
+		font-weight: 500;
+		letter-spacing: 0.1px;
+		text-align: center;
+	}
+	</style>
+
+	<!-- Daily Shloka Box (left corner, light gray/dark, red text) -->
+	<div class="shloka-box" id="shlokaBox">
+		<button id="closeShloka" title="Close">&times;</button>
+		<div class="shloka-date" id="shlokaDate"></div>
+		<h3>🌞 Daily Shloka</h3>
+		<div id="shloka"></div>
+		<div id="meaning"></div>
+		<div class="buttons">
+			<a id="shareWhatsapp" href="#" target="_blank" title="Share on WhatsApp">WhatsApp</a>
+			<button id="copyInstagram" title="Copy for Instagram">Copy for Instagram</button>
+		</div>
+		<div id="copy-status"></div>
+	</div>
+	<style>
+		.shloka-box {
+			position: fixed;
+			top: 5px;
+			left: 32px;
+			background: linear-gradient(135deg, #f5f5f5 60%, #232526 100%);
+			left: 125px;
+			padding: 18px 20px 14px 20px;
+			border-radius: 14px;
+			box-shadow: 0 6px 24px rgba(44, 62, 80, 0.18), 0 1.5px 4px rgba(44,62,80,0.10);
+			max-width: 300px;
+			min-width: 180px;
+			z-index: 1002;
+			border: 2px solid #b71c1c;
+			font-family: 'Segoe UI', 'Arial', sans-serif;
+			transition: box-shadow 0.2s, border 0.2s;
+			overflow: hidden;
+		}
+		.shloka-box:hover {
+			box-shadow: 0 10px 32px rgba(44, 62, 80, 0.22), 0 2px 8px rgba(44,62,80,0.13);
+			border-color: #d32f2f;
+		}
+		.shloka-box h3 {
+			margin: 0 0 10px;
+			font-size: 17px;
+			color: #b71c1c;
+			letter-spacing: 0.5px;
+			font-weight: 700;
+			text-align: center;
+			text-shadow: 0 1px 0 #fff;
+		}
+		.shloka-box .shloka-date {
+			text-align: center;
+			margin-bottom: 6px;
+			font-size: 12px;
+			color: #d32f2f;
+			font-weight: 500;
+		}
+		.shloka-box #shloka {
+			font-size: 14px;
+			font-weight: 600;
+			color: #b71c1c;
+			text-align: center;
+			margin-bottom: 4px;
+		}
+		.shloka-box #meaning {
+			color: #c62828;
+			font-style: italic;
+			font-size: 12px;
+			margin-bottom: 2px;
+			text-align: center;
+		}
+		.shloka-box .buttons {
+			justify-content: center;
+			display: flex;
+			gap: 6px;
+			margin-top: 8px;
+		}
+		.buttons a, .buttons button {
+			font-size: 11px;
+			padding: 4px 8px;
+			background: linear-gradient(90deg, #f5f5f5 60%, #b71c1c 100%);
+			color: #b71c1c;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-weight: 500;
+			box-shadow: 0 1px 3px rgba(44,62,80,0.07);
+			transition: background 0.18s, color 0.18s;
+		}
+		.buttons button {
+			background: linear-gradient(90deg, #232526 60%, #d32f2f 100%);
+			color: #fff;
+		}
+		.buttons a:hover, .buttons button:hover {
+			filter: brightness(1.08);
+			opacity: 0.93;
+		}
+		#copy-status {
+			font-size: 11px;
+			color: #b71c1c;
+			margin-top: 4px;
+			min-height: 14px;
+			font-weight: 500;
+			letter-spacing: 0.1px;
+			text-align: center;
+		}
+		#closeShloka {
+			position: absolute;
+			top: 4px;
+			right: 7px;
+			background: none;
+			border: none;
+			font-size: 18px;
+			cursor: pointer;
+			color: #b71c1c;
+			opacity: 0.7;
+			transition: color 0.15s, opacity 0.15s;
+			font-weight: bold;
+			line-height: 1;
+		}
+		#closeShloka:hover {
+			color: #d32f2f;
+			opacity: 1;
+		}
+	</style>
+	<script>
+	const shlokas = [
+		{ date: "2025-06-11", shloka: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।", meaning: "You have the right to perform your actions, but not to the fruits thereof." },
+		{ date: "2025-06-12", shloka: "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।", meaning: "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure." },
+		{ date: "2025-06-13", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+		{ date: "2025-06-14", shloka: "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः ।", meaning: "Weapons cannot cut the soul, nor can fire burn it." },
+		{ date: "2025-06-15", shloka: "न चास्य सर्वभूतेषु कश्चिद् द्वेष्यः प्रियः क्वचित् ।", meaning: "He has no hatred for any being, nor is he partial to anyone." },
+		{ date: "2025-06-16", shloka: "समः शत्रौ च मित्रे च तथा मानापमानयोः ।", meaning: "He is equal to friend and foe, as well as in honor and dishonor." },
+		{ date: "2025-06-17", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The wise see with equal vision a learned Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+		{ date: "2025-06-18", shloka: "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः ।", meaning: "O son of Kunti, the contact of the senses with their objects gives cold and heat, pleasure and pain." },
+		{ date: "2025-06-19", shloka: "असतो मा सद्गमय ।", meaning: "Lead me from the unreal to the real." },
+		{ date: "2025-06-20", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+		{ date: "2025-06-21", shloka: "योगः कर्मसु कौशलम् ।", meaning: "Yoga is skill in action." },
+		{ date: "2025-06-22", shloka: "अहिंसा सत्यमक्रोधस्त्यागः शान्तिरपैशुनम् ।", meaning: "Non-violence, truthfulness, absence of anger, renunciation, tranquility, aversion to fault-finding." },
+		{ date: "2025-06-23", shloka: "मनः प्रसादः सौम्यत्वं मौनमात्मविनिग्रहः ।", meaning: "Cheerfulness, gentleness, silence, self-control, and purity of character." },
+		{ date: "2025-06-24", shloka: "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते ।", meaning: "Those who always worship Me with exclusive devotion, I take care of their needs." },
+		{ date: "2025-06-25", shloka: "क्षिप्रं भवति धर्मात्मा शश्वच्छान्तिं निगच्छति ।", meaning: "He quickly becomes righteous and attains lasting peace." },
+		{ date: "2025-06-26", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Fix your mind on Me, be devoted to Me, sacrifice to Me, bow down to Me." },
+		{ date: "2025-06-27", shloka: "त्रैगुण्यविषया वेदा निस्त्रैगुण्यो भव अर्जुन ।", meaning: "The Vedas deal with the three modes of material nature. Rise above these modes, O Arjuna." },
+		{ date: "2025-06-28", shloka: "सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ ।", meaning: "Treat pleasure and pain, gain and loss, victory and defeat alike." },
+		{ date: "2025-06-29", shloka: "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् ।", meaning: "Better is one’s own duty, though devoid of merit, than the duty of another well performed." },
+		{ date: "2025-06-30", shloka: "न हि कश्चित्क्षणमपि जातु तिष्ठत्यकर्मकृत् ।", meaning: "No one can remain without action even for a moment." },
+		{ date: "2025-07-01", shloka: "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।", meaning: "Whenever there is a decline in righteousness, O Arjuna, I manifest Myself." },
+		{ date: "2025-07-02", shloka: "परित्राणाय साधूनां विनाशाय च दुष्कृताम् ।", meaning: "For the protection of the good and destruction of the wicked, I appear age after age." },
+		{ date: "2025-07-03", shloka: "न त्वेवाहं जातु नासं न त्वं नेमे जनाधिपाः ।", meaning: "Never was there a time when I did not exist, nor you, nor all these kings." },
+		{ date: "2025-07-04", shloka: "वासांसि जीर्णानि यथा विहाय", meaning: "As a person puts on new garments, giving up old ones, the soul similarly accepts new material bodies." },
+		{ date: "2025-07-05", shloka: "सर्वं कर्माखिलं पार्थ ज्ञाने परिसमाप्यते ।", meaning: "O Partha, all actions in their entirety culminate in knowledge." },
+		{ date: "2025-07-06", shloka: "ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः ।", meaning: "For those whose ignorance is destroyed by knowledge, their knowledge reveals the Supreme." },
+		{ date: "2025-07-07", shloka: "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया ।", meaning: "Learn the truth by approaching a spiritual master, by humble inquiry and service." },
+		{ date: "2025-07-08", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying in this world as knowledge." },
+		{ date: "2025-07-09", shloka: "श्रद्धावाँल्लभते ज्ञानं तत्परः संयतेन्द्रियः ।", meaning: "A faithful person, who is dedicated and has mastery over the senses, attains knowledge." },
+		{ date: "2025-07-10", shloka: "अर्जुन उवाच: स्थितप्रज्ञस्य का भाषा समाधिस्थस्य केशव ।", meaning: "Arjuna said: O Keshava, what is the description of one who is steady in wisdom and absorbed in meditation?" },
+		{ date: "2025-07-11", shloka: "प्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान् ।", meaning: "When a man gives up all desires of the mind, he is said to be of steady wisdom." },
+		{ date: "2025-07-12", shloka: "दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः ।", meaning: "He whose mind is not disturbed by adversity, who does not crave for pleasure, is steady in wisdom." },
+		{ date: "2025-07-13", shloka: "यः सर्वत्रानभिस्नेहस्तत्तत्प्राप्य शुभाशुभम् ।", meaning: "He who is free from attachment, neither rejoicing nor hating when obtaining good or evil, is steady in wisdom." },
+		{ date: "2025-07-14", shloka: "अपूर्यमाणमचलप्रतिष्ठं समुद्रमापः प्रविशन्ति यद्वत् ।", meaning: "As rivers flow into the ocean but the ocean remains full and unchanged, so the wise remain unmoved by desires." },
+		{ date: "2025-07-15", shloka: "न जायते म्रियते वा कदाचित्", meaning: "The soul is never born nor does it ever die." },
+		{ date: "2025-07-16", shloka: "अव्यक्तोऽयमचिन्त्योऽयमविकार्योऽयमुच्यते ।", meaning: "The soul is said to be unmanifest, inconceivable, and unchangeable." },
+		{ date: "2025-07-17", shloka: "क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते ।", meaning: "Do not yield to unmanliness, O Partha. It does not befit you." },
+		{ date: "2025-07-18", shloka: "मृत्युः सर्वहरश्चाहम् उद्भवश्च भविष्यताम् ।", meaning: "I am all-devouring death, and I am the origin of all that is yet to be." },
+		{ date: "2025-07-19", shloka: "सर्वस्य चाहं हृदि सन्निविष्टो", meaning: "I am seated in everyone's heart." },
+		{ date: "2025-07-20", shloka: "मच्चित्तः सर्वदुर्गाणि मत्प्रसादात्तरिष्यसि ।", meaning: "By My grace, you shall overcome all obstacles." },
+		{ date: "2025-07-21", shloka: "मय्येव मन आधत्स्व मयि बुद्धिं निवेशय ।", meaning: "Fix your mind on Me alone, let your intellect dwell in Me." },
+		{ date: "2025-07-22", shloka: "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते ।", meaning: "I am the source of all spiritual and material worlds. Everything emanates from Me." },
+		{ date: "2025-07-23", shloka: "तेषां सततयुक्तानां भजतां प्रीतिपूर्वकम् ।", meaning: "To those who are constantly devoted and worship Me with love, I give the understanding by which they can come to Me." },
+		{ date: "2025-07-24", shloka: "सर्वभूतस्थमात्मानं सर्वभूतानि चात्मनि ।", meaning: "He who sees the Self in all beings and all beings in the Self, never turns away from it." },
+		{ date: "2025-07-25", shloka: "उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।", meaning: "Elevate yourself by your own self, do not degrade yourself." },
+		{ date: "2025-07-26", shloka: "श्रीभगवानुवाच: कुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् ।", meaning: "The Blessed Lord said: Whence has this dejection come upon you in this hour of crisis?" },
+		{ date: "2025-07-27", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying as knowledge in this world." },
+		{ date: "2025-07-28", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+		{ date: "2025-07-29", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Always think of Me, become My devotee, worship Me, and offer your homage unto Me." },
+		{ date: "2025-07-30", shloka: "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः ।", meaning: "Wherever there is Krishna, the master of yoga, and Arjuna, the supreme archer, there will also surely be fortune, victory, prosperity, and sound morality." },
+		// ... (add all your shlokas here, each with a unique date in order)
+		{ date: "2025-07-31", shloka: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।", meaning: "You have the right to perform your actions, but not to the fruits thereof." },
+		{ date: "2025-08-01", shloka: "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।", meaning: "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure." },
+		{ date: "2025-08-02", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+		{ date: "2025-08-03", shloka: "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः ।", meaning: "Weapons cannot cut the soul, nor can fire burn it." },
+		{ date: "2025-08-04", shloka: "न चास्य सर्वभूतेषु कश्चिद् द्वेष्यः प्रियः क्वचित् ।", meaning: "He has no hatred for any being, nor is he partial to anyone." },
+		{ date: "2025-08-05", shloka: "समः शत्रौ च मित्रे च तथा मानापमानयोः ।", meaning: "He is equal to friend and foe, as well as in honor and dishonor." },
+		{ date: "2025-08-06", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The wise see with equal vision a learned Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+		{ date: "2025-08-07", shloka: "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः ।", meaning: "O son of Kunti, the contact of the senses with their objects gives cold and heat, pleasure and pain." },
+		{ date: "2025-08-08", shloka: "असतो मा सद्गमय ।", meaning: "Lead me from the unreal to the real." },
+		{ date: "2025-08-09", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+		{ date: "2025-08-10", shloka: "योगः कर्मसु कौशलम् ।", meaning: "Yoga is skill in action." },
+		{ date: "2025-08-11", shloka: "अहिंसा सत्यमक्रोधस्त्यागः शान्तिरपैशुनम् ।", meaning: "Non-violence, truthfulness, absence of anger, renunciation, tranquility, aversion to fault-finding." },
+		{ date: "2025-08-12", shloka: "मनः प्रसादः सौम्यत्वं मौनमात्मविनिग्रहः ।", meaning: "Cheerfulness, gentleness, silence, self-control, and purity of character." },
+		{ date: "2025-08-13", shloka: "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते ।", meaning: "Those who always worship Me with exclusive devotion, I take care of their needs." },
+		{ date: "2025-08-14", shloka: "क्षिप्रं भवति धर्मात्मा शश्वच्छान्तिं निगच्छति ।", meaning: "He quickly becomes righteous and attains lasting peace." },
+		{ date: "2025-08-15", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Fix your mind on Me, be devoted to Me, sacrifice to Me, bow down to Me." },
+		{ date: "2025-08-16", shloka: "त्रैगुण्यविषया वेदा निस्त्रैगुण्यो भव अर्जुन ।", meaning: "The Vedas deal with the three modes of material nature. Rise above these modes, O Arjuna." },
+		{ date: "2025-08-17", shloka: "सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ ।", meaning: "Treat pleasure and pain, gain and loss, victory and defeat alike." },
+		{ date: "2025-08-18", shloka: "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् ।", meaning: "Better is one’s own duty, though devoid of merit, than the duty of another well performed." },
+		{ date: "2025-08-19", shloka: "न हि कश्चित्क्षणमपि जातु तिष्ठत्यकर्मकृत् ।", meaning: "No one can remain without action even for a moment." },
+		{ date: "2025-08-20", shloka: "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।", meaning: "Whenever there is a decline in righteousness, O Arjuna, I manifest Myself." },
+		{ date: "2025-08-21", shloka: "परित्राणाय साधूनां विनाशाय च दुष्कृताम् ।", meaning: "For the protection of the good and destruction of the wicked, I appear age after age." },
+		{ date: "2025-08-22", shloka: "न त्वेवाहं जातु नासं न त्वं नेमे जनाधिपाः ।", meaning: "Never was there a time when I did not exist, nor you, nor all these kings." },
+		{ date: "2025-08-23", shloka: "वासांसि जीर्णानि यथा विहाय", meaning: "As a person puts on new garments, giving up old ones, the soul similarly accepts new material bodies." },
+		{ date: "2025-08-24", shloka: "सर्वं कर्माखिलं पार्थ ज्ञाने परिसमाप्यते ।", meaning: "O Partha, all actions in their entirety culminate in knowledge." },
+		{ date: "2025-08-25", shloka: "ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः ।", meaning: "For those whose ignorance is destroyed by knowledge, their knowledge reveals the Supreme." },
+		{ date: "2025-08-26", shloka: "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया ।", meaning: "Learn the truth by approaching a spiritual master, by humble inquiry and service." },
+		{ date: "2025-08-27", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying in this world as knowledge." },
+		{ date: "2025-08-28", shloka: "श्रद्धावाँल्लभते ज्ञानं तत्परः संयतेन्द्रियः ।", meaning: "A faithful person, who is dedicated and has mastery over the senses, attains knowledge." },
+		{ date: "2025-08-29", shloka: "अर्जुन उवाच: स्थितप्रज्ञस्य का भाषा समाधिस्थस्य केशव ।", meaning: "Arjuna said: O Keshava, what is the description of one who is steady in wisdom and absorbed in meditation?" },
+		{ date: "2025-08-30", shloka: "प्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान् ।", meaning: "When a man gives up all desires of the mind, he is said to be of steady wisdom." },
+		{ date: "2025-08-31", shloka: "दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः ।", meaning: "He whose mind is not disturbed by adversity, who does not crave for pleasure, is steady in wisdom." },
+		{ date: "2025-09-01", shloka: "यः सर्वत्रानभिस्नेहस्तत्तत्प्राप्य शुभाशुभम् ।", meaning: "He who is free from attachment, neither rejoicing nor hating when obtaining good or evil, is steady in wisdom." },
+		{ date: "2025-09-02", shloka: "अपूर्यमाणमचलप्रतिष्ठं समुद्रमापः प्रविशन्ति यद्वत् ।", meaning: "As rivers flow into the ocean but the ocean remains full and unchanged, so the wise remain unmoved by desires." },
+		{ date: "2025-09-03", shloka: "न जायते म्रियते वा कदाचित्", meaning: "The soul is never born nor does it ever die." },
+		{ date: "2025-09-04", shloka: "अव्यक्तोऽयमचिन्त्योऽयमविकार्योऽयमुच्यते ।", meaning: "The soul is said to be unmanifest, inconceivable, and unchangeable." },
+		{ date: "2025-09-05", shloka: "क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते ।", meaning: "Do not yield to unmanliness, O Partha. It does not befit you." },
+		{ date: "2025-09-06", shloka: "मृत्युः सर्वहरश्चाहम् उद्भवश्च भविष्यताम् ।", meaning: "I am all-devouring death, and I am the origin of all that is yet to be." },
+		{ date: "2025-09-07", shloka: "सर्वस्य चाहं हृदि सन्निविष्टो", meaning: "I am seated in everyone's heart." },
+		{ date: "2025-09-08", shloka: "मच्चित्तः सर्वदुर्गाणि मत्प्रसादात्तरिष्यसि ।", meaning: "By My grace, you shall overcome all obstacles." },
+		{ date: "2025-09-09", shloka: "मय्येव मन आधत्स्व मयि बुद्धिं निवेशय ।", meaning: "Fix your mind on Me alone, let your intellect dwell in Me." },
+		{ date: "2025-09-10", shloka: "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते ।", meaning: "I am the source of all spiritual and material worlds. Everything emanates from Me." },
+		{ date: "2025-09-11", shloka: "तेषां सततयुक्तानां भजतां प्रीतिपूर्वकम् ।", meaning: "To those who are constantly devoted and worship Me with love, I give the understanding by which they can come to Me." },
+		{ date: "2025-09-12", shloka: "सर्वभूतस्थमात्मानं सर्वभूतानि चात्मनि ।", meaning: "He who sees the Self in all beings and all beings in the Self, never turns away from it." },
+		{ date: "2025-09-13", shloka: "उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।", meaning: "Elevate yourself by your own self, do not degrade yourself." },
+		{ date: "2025-09-14", shloka: "श्रीभगवानुवाच: कुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् ।", meaning: "The Blessed Lord said: Whence has this dejection come upon you in this hour of crisis?" },
+		{ date: "2025-09-15", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying as knowledge in this world." },
+		{ date: "2025-09-16", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+		{ date: "2025-09-17", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Always think of Me, become My devotee, worship Me, and offer your homage unto Me." },
+		{ date: "2025-09-18", shloka: "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः ।", meaning: "Wherever there is Krishna, the master of yoga, and Arjuna, the supreme archer, there will also surely be fortune, victory, prosperity, and sound morality." },
+		{ date: "2025-09-19", shloka: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।", meaning: "You have the right to perform your actions, but not to the fruits thereof." },
+	{ date: "2025-09-20", shloka: "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।", meaning: "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure." },
+	{ date: "2025-09-21", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+	{ date: "2025-09-22", shloka: "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः ।", meaning: "Weapons cannot cut the soul, nor can fire burn it." },
+	{ date: "2025-09-23", shloka: "न चास्य सर्वभूतेषु कश्चिद् द्वेष्यः प्रियः क्वचित् ।", meaning: "He has no hatred for any being, nor is he partial to anyone." },
+	{ date: "2025-09-24", shloka: "समः शत्रौ च मित्रे च तथा मानापमानयोः ।", meaning: "He is equal to friend and foe, as well as in honor and dishonor." },
+	{ date: "2025-09-25", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The wise see with equal vision a learned Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+	{ date: "2025-09-26", shloka: "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः ।", meaning: "O son of Kunti, the contact of the senses with their objects gives cold and heat, pleasure and pain." },
+	{ date: "2025-09-27", shloka: "असतो मा सद्गमय ।", meaning: "Lead me from the unreal to the real." },
+	{ date: "2025-09-28", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+	{ date: "2025-09-29", shloka: "योगः कर्मसु कौशलम् ।", meaning: "Yoga is skill in action." },
+	{ date: "2025-09-30", shloka: "अहिंसा सत्यमक्रोधस्त्यागः शान्तिरपैशुनम् ।", meaning: "Non-violence, truthfulness, absence of anger, renunciation, tranquility, aversion to fault-finding." },
+	{ date: "2025-10-01", shloka: "मनः प्रसादः सौम्यत्वं मौनमात्मविनिग्रहः ।", meaning: "Cheerfulness, gentleness, silence, self-control, and purity of character." },
+	{ date: "2025-10-02", shloka: "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते ।", meaning: "Those who always worship Me with exclusive devotion, I take care of their needs." },
+	{ date: "2025-10-03", shloka: "क्षिप्रं भवति धर्मात्मा शश्वच्छान्तिं निगच्छति ।", meaning: "He quickly becomes righteous and attains lasting peace." },
+	{ date: "2025-10-04", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Fix your mind on Me, be devoted to Me, sacrifice to Me, bow down to Me." },
+	{ date: "2025-10-05", shloka: "त्रैगुण्यविषया वेदा निस्त्रैगुण्यो भव अर्जुन ।", meaning: "The Vedas deal with the three modes of material nature. Rise above these modes, O Arjuna." },
+	{ date: "2025-10-06", shloka: "सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ ।", meaning: "Treat pleasure and pain, gain and loss, victory and defeat alike." },
+	{ date: "2025-10-07", shloka: "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् ।", meaning: "Better is one’s own duty, though devoid of merit, than the duty of another well performed." },
+	{ date: "2025-10-08", shloka: "न हि कश्चित्क्षणमपि जातु तिष्ठत्यकर्मकृत् ।", meaning: "No one can remain without action even for a moment." },
+	{ date: "2025-10-09", shloka: "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।", meaning: "Whenever there is a decline in righteousness, O Arjuna, I manifest Myself." },
+	{ date: "2025-10-10", shloka: "परित्राणाय साधूनां विनाशाय च दुष्कृताम् ।", meaning: "For the protection of the good and destruction of the wicked, I appear age after age." },
+	{ date: "2025-10-11", shloka: "न त्वेवाहं जातु नासं न त्वं नेमे जनाधिपाः ।", meaning: "Never was there a time when I did not exist, nor you, nor all these kings." },
+	{ date: "2025-10-12", shloka: "वासांसि जीर्णानि यथा विहाय", meaning: "As a person puts on new garments, giving up old ones, the soul similarly accepts new material bodies." },
+	{ date: "2025-10-13", shloka: "सर्वं कर्माखिलं पार्थ ज्ञाने परिसमाप्यते ।", meaning: "O Partha, all actions in their entirety culminate in knowledge." },
+	{ date: "2025-10-14", shloka: "ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः ।", meaning: "For those whose ignorance is destroyed by knowledge, their knowledge reveals the Supreme." },
+	{ date: "2025-10-15", shloka: "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया ।", meaning: "Learn the truth by approaching a spiritual master, by humble inquiry and service." },
+	{ date: "2025-10-16", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying in this world as knowledge." },
+	{ date: "2025-10-17", shloka: "श्रद्धावाँल्लभते ज्ञानं तत्परः संयतेन्द्रियः ।", meaning: "A faithful person, who is dedicated and has mastery over the senses, attains knowledge." },
+	{ date: "2025-10-18", shloka: "अर्जुन उवाच: स्थितप्रज्ञस्य का भाषा समाधिस्थस्य केशव ।", meaning: "Arjuna said: O Keshava, what is the description of one who is steady in wisdom and absorbed in meditation?" },
+	{ date: "2025-10-19", shloka: "प्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान् ।", meaning: "When a man gives up all desires of the mind, he is said to be of steady wisdom." },
+	{ date: "2025-10-20", shloka: "दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः ।", meaning: "He whose mind is not disturbed by adversity, who does not crave for pleasure, is steady in wisdom." },
+	{ date: "2025-10-21", shloka: "यः सर्वत्रानभिस्नेहस्तत्तत्प्राप्य शुभाशुभम् ।", meaning: "He who is free from attachment, neither rejoicing nor hating when obtaining good or evil, is steady in wisdom." },
+	{ date: "2025-10-22", shloka: "अपूर्यमाणमचलप्रतिष्ठं समुद्रमापः प्रविशन्ति यद्वत् ।", meaning: "As rivers flow into the ocean but the ocean remains full and unchanged, so the wise remain unmoved by desires." },
+	{ date: "2025-10-23", shloka: "न जायते म्रियते वा कदाचित्", meaning: "The soul is never born nor does it ever die." },
+	{ date: "2025-10-24", shloka: "अव्यक्तोऽयमचिन्त्योऽयमविकार्योऽयमुच्यते ।", meaning: "The soul is said to be unmanifest, inconceivable, and unchangeable." },
+	{ date: "2025-10-25", shloka: "क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते ।", meaning: "Do not yield to unmanliness, O Partha. It does not befit you." },
+	{ date: "2025-10-26", shloka: "मृत्युः सर्वहरश्चाहम् उद्भवश्च भविष्यताम् ।", meaning: "I am all-devouring death, and I am the origin of all that is yet to be." },
+	{ date: "2025-10-27", shloka: "सर्वस्य चाहं हृदि सन्निविष्टो", meaning: "I am seated in everyone's heart." },
+	{ date: "2025-10-28", shloka: "मच्चित्तः सर्वदुर्गाणि मत्प्रसादात्तरिष्यसि ।", meaning: "By My grace, you shall overcome all obstacles." },
+	{ date: "2025-10-29", shloka: "मय्येव मन आधत्स्व मयि बुद्धिं निवेशय ।", meaning: "Fix your mind on Me alone, let your intellect dwell in Me." },
+	{ date: "2025-10-30", shloka: "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते ।", meaning: "I am the source of all spiritual and material worlds. Everything emanates from Me." },
+	{ date: "2025-10-31", shloka: "तेषां सततयुक्तानां भजतां प्रीतिपूर्वकम् ।", meaning: "To those who are constantly devoted and worship Me with love, I give the understanding by which they can come to Me." },
+	{ date: "2025-11-01", shloka: "सर्वभूतस्थमात्मानं सर्वभूतानि चात्मनि ।", meaning: "He who sees the Self in all beings and all beings in the Self, never turns away from it." },
+	{ date: "2025-11-02", shloka: "उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।", meaning: "Elevate yourself by your own self, do not degrade yourself." },
+	{ date: "2025-11-03", shloka: "श्रीभगवानुवाच: कुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् ।", meaning: "The Blessed Lord said: Whence has this dejection come upon you in this hour of crisis?" },
+	{ date: "2025-11-04", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying as knowledge in this world." },
+	{ date: "2025-11-05", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+	{ date: "2025-11-06", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Always think of Me, become My devotee, worship Me, and offer your homage unto Me." },
+	{ date: "2025-11-07", shloka: "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः ।", meaning: "Wherever there is Krishna, the master of yoga, and Arjuna, the supreme archer, there will also surely be fortune, victory, prosperity, and sound morality." },
+	{ date: "2025-11-08", shloka: "धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः ।", meaning: "On the field of dharma, at Kurukshetra, assembled and eager for battle." },
+	{ date: "2025-11-09", shloka: "सञ्जय उवाच: दृष्ट्वा तु पाण्डवानीकं व्यूढं दुर्योधनस्तदा ।", meaning: "Sanjaya said: Seeing the Pandava army arranged in military formation, King Duryodhana approached his teacher." },
+	{ date: "2025-11-10", shloka: "काचिद्भूमिर्निरालम्बा न किञ्चिदपि दृश्यते ।", meaning: "At one time, the earth was without support, and nothing could be seen." },
+	{ date: "2025-11-11", shloka: "सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः ।", meaning: "May all be happy, may all be free from illness." },
+	{ date: "2025-11-12", shloka: "त्वमेव माता च पिता त्वमेव", meaning: "You alone are my mother and father." },
+	{ date: "2025-11-13", shloka: "त्वमेव सर्वं मम देव देव ।", meaning: "You alone are everything to me, O Lord of Lords." },
+	{ date: "2025-11-14", shloka: "सर्वे भवन्तु सुखिनः", meaning: "May all be happy." },
+	{ date: "2025-11-15", shloka: "सर्वे सन्तु निरामयाः", meaning: "May all be free from disease." },
+	{ date: "2025-11-16", shloka: "सर्वे भद्राणि पश्यन्तु", meaning: "May all see auspiciousness." },
+	{ date: "2025-11-17", shloka: "मा कश्चिद्दुःखभाग्भवेत्", meaning: "May none suffer in any way." },
+	{ date: "2025-11-18", shloka: "ॐ शान्तिः शान्तिः शान्तिः", meaning: "Om, peace, peace, peace." },
+	{ date: "2025-11-19", shloka: "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः ।", meaning: "Wherever there is Krishna, the master of yoga, and Arjuna, the supreme archer, there will also surely be fortune, victory, prosperity, and sound morality." },
+	{ date: "2025-11-20", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+	{ date: "2025-11-21", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Always think of Me, become My devotee, worship Me, and offer your homage unto Me." },
+	{ date: "2025-11-22", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying as knowledge in this world." },
+	{ date: "2025-11-23", shloka: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।", meaning: "You have the right to perform your actions, but not to the fruits thereof." },
+	{ date: "2025-11-24", shloka: "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।", meaning: "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure." },
+	{ date: "2025-11-25", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+	{ date: "2025-11-26", shloka: "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः ।", meaning: "Weapons cannot cut the soul, nor can fire burn it." },
+	{ date: "2025-11-27", shloka: "न चास्य सर्वभूतेषु कश्चिद् द्वेष्यः प्रियः क्वचित् ।", meaning: "He has no hatred for any being, nor is he partial to anyone." },
+	{ date: "2025-11-28", shloka: "समः शत्रौ च मित्रे च तथा मानापमानयोः ।", meaning: "He is equal to friend and foe, as well as in honor and dishonor." },
+	{ date: "2025-11-29", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The wise see with equal vision a learned Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+	{ date: "2025-11-30", shloka: "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः ।", meaning: "O son of Kunti, the contact of the senses with their objects gives cold and heat, pleasure and pain." },
+	{ date: "2025-12-01", shloka: "असतो मा सद्गमय ।", meaning: "Lead me from the unreal to the real." },
+	{ date: "2025-12-02", shloka: "तमसो मा ज्योतिर्गमय ।", meaning: "Lead me from darkness to light." },
+	{ date: "2025-12-03", shloka: "मृत्योर् मा अमृतं गमय ।", meaning: "Lead me from death to immortality." },
+	{ date: "2025-12-04", shloka: "ॐ शान्तिः शान्तिः शान्तिः", meaning: "Om, peace, peace, peace." },
+	{ date: "2025-12-05", shloka: "सर्वे भवन्तु सुखिनः", meaning: "May all be happy." },
+	{ date: "2025-12-06", shloka: "सर्वे सन्तु निरामयाः", meaning: "May all be free from disease." },
+	{ date: "2025-12-07", shloka: "सर्वे भद्राणि पश्यन्तु", meaning: "May all see auspiciousness." },
+	{ date: "2025-12-08", shloka: "मा कश्चिद्दुःखभाग्भवेत्", meaning: "May none suffer in any way." },
+	{ date: "2025-12-09", shloka: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।", meaning: "You have the right to perform your actions, but not to the fruits thereof." },
+	{ date: "2025-12-10", shloka: "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।", meaning: "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure." },
+	{ date: "2025-12-11", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+	{ date: "2025-12-12", shloka: "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः ।", meaning: "Weapons cannot cut the soul, nor can fire burn it." },
+	{ date: "2025-12-13", shloka: "न चास्य सर्वभूतेषु कश्चिद् द्वेष्यः प्रियः क्वचित् ।", meaning: "He has no hatred for any being, nor is he partial to anyone." },
+	{ date: "2025-12-14", shloka: "समः शत्रौ च मित्रे च तथा मानापमानयोः ।", meaning: "He is equal to friend and foe, as well as in honor and dishonor." },
+	{ date: "2025-12-15", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The wise see with equal vision a learned Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+	{ date: "2025-12-16", shloka: "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः ।", meaning: "O son of Kunti, the contact of the senses with their objects gives cold and heat, pleasure and pain." },
+	{ date: "2025-12-17", shloka: "असतो मा सद्गमय ।", meaning: "Lead me from the unreal to the real." },
+	{ date: "2025-12-18", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+	{ date: "2025-12-19", shloka: "योगः कर्मसु कौशलम् ।", meaning: "Yoga is skill in action." },
+	{ date: "2025-12-20", shloka: "अहिंसा सत्यमक्रोधस्त्यागः शान्तिरपैशुनम् ।", meaning: "Non-violence, truthfulness, absence of anger, renunciation, tranquility, aversion to fault-finding." },
+	{ date: "2025-12-21", shloka: "मनः प्रसादः सौम्यत्वं मौनमात्मविनिग्रहः ।", meaning: "Cheerfulness, gentleness, silence, self-control, and purity of character." },
+	{ date: "2025-12-22", shloka: "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते ।", meaning: "Those who always worship Me with exclusive devotion, I take care of their needs." },
+	{ date: "2025-12-23", shloka: "क्षिप्रं भवति धर्मात्मा शश्वच्छान्तिं निगच्छति ।", meaning: "He quickly becomes righteous and attains lasting peace." },
+	{ date: "2025-12-24", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Fix your mind on Me, be devoted to Me, sacrifice to Me, bow down to Me." },
+	{ date: "2025-12-25", shloka: "त्रैगुण्यविषया वेदा निस्त्रैगुण्यो भव अर्जुन ।", meaning: "The Vedas deal with the three modes of material nature. Rise above these modes, O Arjuna." },
+	{ date: "2025-12-26", shloka: "सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ ।", meaning: "Treat pleasure and pain, gain and loss, victory and defeat alike." },
+	{ date: "2025-12-27", shloka: "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् ।", meaning: "Better is one’s own duty, though devoid of merit, than the duty of another well performed." },
+	{ date: "2025-12-28", shloka: "न हि कश्चित्क्षणमपि जातु तिष्ठत्यकर्मकृत् ।", meaning: "No one can remain without action even for a moment." },
+	{ date: "2025-12-29", shloka: "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।", meaning: "Whenever there is a decline in righteousness, O Arjuna, I manifest Myself." },
+	{ date: "2025-12-30", shloka: "परित्राणाय साधूनां विनाशाय च दुष्कृताम् ।", meaning: "For the protection of the good and destruction of the wicked, I appear age after age." },
+	{ date: "2025-12-31", shloka: "न त्वेवाहं जातु नासं न त्वं नेमे जनाधिपाः ।", meaning: "Never was there a time when I did not exist, nor you, nor all these kings." },
+	{ date: "2026-01-01", shloka: "वासांसि जीर्णानि यथा विहाय", meaning: "As a person puts on new garments, giving up old ones, the soul similarly accepts new material bodies." },
+	{ date: "2026-01-02", shloka: "सर्वं कर्माखिलं पार्थ ज्ञाने परिसमाप्यते ।", meaning: "O Partha, all actions in their entirety culminate in knowledge." },
+	{ date: "2026-01-03", shloka: "ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः ।", meaning: "For those whose ignorance is destroyed by knowledge, their knowledge reveals the Supreme." },
+	{ date: "2026-01-04", shloka: "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया ।", meaning: "Learn the truth by approaching a spiritual master, by humble inquiry and service." },
+	{ date: "2026-01-05", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying in this world as knowledge." },
+	{ date: "2026-01-06", shloka: "श्रद्धावाँल्लभते ज्ञानं तत्परः संयतेन्द्रियः ।", meaning: "A faithful person, who is dedicated and has mastery over the senses, attains knowledge." },
+	{ date: "2026-01-07", shloka: "अर्जुन उवाच: स्थितप्रज्ञस्य का भाषा समाधिस्थस्य केशव ।", meaning: "Arjuna said: O Keshava, what is the description of one who is steady in wisdom and absorbed in meditation?" },
+	{ date: "2026-01-08", shloka: "प्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान् ।", meaning: "When a man gives up all desires of the mind, he is said to be of steady wisdom." },
+	{ date: "2026-01-09", shloka: "दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः ।", meaning: "He whose mind is not disturbed by adversity, who does not crave for pleasure, is steady in wisdom." },
+	{ date: "2026-01-10", shloka: "यः सर्वत्रानभिस्नेहस्तत्तत्प्राप्य शुभाशुभम् ।", meaning: "He who is free from attachment, neither rejoicing nor hating when obtaining good or evil, is steady in wisdom." },
+	{ date: "2026-01-11", shloka: "अपूर्यमाणमचलप्रतिष्ठं समुद्रमापः प्रविशन्ति यद्वत् ।", meaning: "As rivers flow into the ocean but the ocean remains full and unchanged, so the wise remain unmoved by desires." },
+	{ date: "2026-01-12", shloka: "न जायते म्रियते वा कदाचित्", meaning: "The soul is never born nor does it ever die." },
+	{ date: "2026-01-13", shloka: "अव्यक्तोऽयमचिन्त्योऽयमविकार्योऽयमुच्यते ।", meaning: "The soul is said to be unmanifest, inconceivable, and unchangeable." },
+	{ date: "2026-01-14", shloka: "क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते ।", meaning: "Do not yield to unmanliness, O Partha. It does not befit you." },
+	{ date: "2026-01-15", shloka: "मृत्युः सर्वहरश्चाहम् उद्भवश्च भविष्यताम् ।", meaning: "I am all-devouring death, and I am the origin of all that is yet to be." },
+	{ date: "2026-01-16", shloka: "सर्वस्य चाहं हृदि सन्निविष्टो", meaning: "I am seated in everyone's heart." },
+	{ date: "2026-01-17", shloka: "मच्चित्तः सर्वदुर्गाणि मत्प्रसादात्तरिष्यसि ।", meaning: "By My grace, you shall overcome all obstacles." },
+	{ date: "2026-01-18", shloka: "मय्येव मन आधत्स्व मयि बुद्धिं निवेशय ।", meaning: "Fix your mind on Me alone, let your intellect dwell in Me." },
+	{ date: "2026-01-19", shloka: "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते ।", meaning: "I am the source of all spiritual and material worlds. Everything emanates from Me." },
+	{ date: "2026-01-20", shloka: "तेषां सततयुक्तानां भजतां प्रीतिपूर्वकम् ।", meaning: "To those who are constantly devoted and worship Me with love, I give the understanding by which they can come to Me." },
+	{ date: "2026-01-21", shloka: "सर्वभूतस्थमात्मानं सर्वभूतानि चात्मनि ।", meaning: "He who sees the Self in all beings and all beings in the Self, never turns away from it." },
+	{ date: "2026-01-22", shloka: "उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।", meaning: "Elevate yourself by your own self, do not degrade yourself." },
+	{ date: "2026-01-23", shloka: "श्रीभगवानुवाच: कुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् ।", meaning: "The Blessed Lord said: Whence has this dejection come upon you in this hour of crisis?" },
+	{ date: "2026-01-24", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying as knowledge in this world." },
+	{ date: "2026-01-25", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+	{ date: "2026-01-26", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Always think of Me, become My devotee, worship Me, and offer your homage unto Me." },
+	{ date: "2026-01-27", shloka: "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः ।", meaning: "Wherever there is Krishna, the master of yoga, and Arjuna, the supreme archer, there will also surely be fortune, victory, prosperity, and sound morality." },
+	{ date: "2026-01-28", shloka: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।", meaning: "You have the right to perform your actions, but not to the fruits thereof." },
+	{ date: "2026-01-29", shloka: "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।", meaning: "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure." },
+	{ date: "2026-01-30", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The humble sages, by virtue of true knowledge, see with equal vision a learned and gentle Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+	{ date: "2026-01-31", shloka: "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः ।", meaning: "Weapons cannot cut the soul, nor can fire burn it." },
+	{ date: "2026-02-01", shloka: "न चास्य सर्वभूतेषु कश्चिद् द्वेष्यः प्रियः क्वचित् ।", meaning: "He has no hatred for any being, nor is he partial to anyone." },
+	{ date: "2026-02-02", shloka: "समः शत्रौ च मित्रे च तथा मानापमानयोः ।", meaning: "He is equal to friend and foe, as well as in honor and dishonor." },
+	{ date: "2026-02-03", shloka: "विद्या विनयसम्पन्ने ब्राह्मणे गवि हस्तिनि ।", meaning: "The wise see with equal vision a learned Brahmin, a cow, an elephant, a dog, and a dog-eater." },
+	{ date: "2026-02-04", shloka: "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः ।", meaning: "O son of Kunti, the contact of the senses with their objects gives cold and heat, pleasure and pain." },
+	{ date: "2026-02-05", shloka: "असतो मा सद्गमय ।", meaning: "Lead me from the unreal to the real." },
+	{ date: "2026-02-06", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+	{ date: "2026-02-07", shloka: "योगः कर्मसु कौशलम् ।", meaning: "Yoga is skill in action." },
+	{ date: "2026-02-08", shloka: "अहिंसा सत्यमक्रोधस्त्यागः शान्तिरपैशुनम् ।", meaning: "Non-violence, truthfulness, absence of anger, renunciation, tranquility, aversion to fault-finding." },
+	{ date: "2026-02-09", shloka: "मनः प्रसादः सौम्यत्वं मौनमात्मविनिग्रहः ।", meaning: "Cheerfulness, gentleness, silence, self-control, and purity of character." },
+	{ date: "2026-02-10", shloka: "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते ।", meaning: "Those who always worship Me with exclusive devotion, I take care of their needs." },
+	{ date: "2026-02-11", shloka: "क्षिप्रं भवति धर्मात्मा शश्वच्छान्तिं निगच्छति ।", meaning: "He quickly becomes righteous and attains lasting peace." },
+	{ date: "2026-02-12", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Fix your mind on Me, be devoted to Me, sacrifice to Me, bow down to Me." },
+	{ date: "2026-02-13", shloka: "त्रैगुण्यविषया वेदा निस्त्रैगुण्यो भव अर्जुन ।", meaning: "The Vedas deal with the three modes of material nature. Rise above these modes, O Arjuna." },
+	{ date: "2026-02-14", shloka: "सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ ।", meaning: "Treat pleasure and pain, gain and loss, victory and defeat alike." },
+	{ date: "2026-02-15", shloka: "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् ।", meaning: "Better is one’s own duty, though devoid of merit, than the duty of another well performed." },
+	{ date: "2026-02-16", shloka: "न हि कश्चित्क्षणमपि जातु तिष्ठत्यकर्मकृत् ।", meaning: "No one can remain without action even for a moment." },
+	{ date: "2026-02-17", shloka: "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।", meaning: "Whenever there is a decline in righteousness, O Arjuna, I manifest Myself." },
+	{ date: "2026-02-18", shloka: "परित्राणाय साधूनां विनाशाय च दुष्कृताम् ।", meaning: "For the protection of the good and destruction of the wicked, I appear age after age." },
+	{ date: "2026-02-19", shloka: "न त्वेवाहं जातु नासं न त्वं नेमे जनाधिपाः ।", meaning: "Never was there a time when I did not exist, nor you, nor all these kings." },
+	{ date: "2026-02-20", shloka: "वासांसि जीर्णानि यथा विहाय", meaning: "As a person puts on new garments, giving up old ones, the soul similarly accepts new material bodies." },
+	{ date: "2026-02-21", shloka: "सर्वं कर्माखिलं पार्थ ज्ञाने परिसमाप्यते ।", meaning: "O Partha, all actions in their entirety culminate in knowledge." },
+	{ date: "2026-02-22", shloka: "ज्ञानेन तु तदज्ञानं येषां नाशितमात्मनः ।", meaning: "For those whose ignorance is destroyed by knowledge, their knowledge reveals the Supreme." },
+	{ date: "2026-02-23", shloka: "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया ।", meaning: "Learn the truth by approaching a spiritual master, by humble inquiry and service." },
+	{ date: "2026-02-24", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying in this world as knowledge." },
+	{ date: "2026-02-25", shloka: "श्रद्धावाँल्लभते ज्ञानं तत्परः संयतेन्द्रियः ।", meaning: "A faithful person, who is dedicated and has mastery over the senses, attains knowledge." },
+	{ date: "2026-02-26", shloka: "अर्जुन उवाच: स्थितप्रज्ञस्य का भाषा समाधिस्थस्य केशव ।", meaning: "Arjuna said: O Keshava, what is the description of one who is steady in wisdom and absorbed in meditation?" },
+	{ date: "2026-02-27", shloka: "प्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान् ।", meaning: "When a man gives up all desires of the mind, he is said to be of steady wisdom." },
+	{ date: "2026-02-28", shloka: "दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः ।", meaning: "He whose mind is not disturbed by adversity, who does not crave for pleasure, is steady in wisdom." },
+	{ date: "2026-03-01", shloka: "यः सर्वत्रानभिस्नेहस्तत्तत्प्राप्य शुभाशुभम् ।", meaning: "He who is free from attachment, neither rejoicing nor hating when obtaining good or evil, is steady in wisdom." },
+	{ date: "2026-03-02", shloka: "अपूर्यमाणमचलप्रतिष्ठं समुद्रमापः प्रविशन्ति यद्वत् ।", meaning: "As rivers flow into the ocean but the ocean remains full and unchanged, so the wise remain unmoved by desires." },
+	{ date: "2026-03-03", shloka: "न जायते म्रियते वा कदाचित्", meaning: "The soul is never born nor does it ever die." },
+	{ date: "2026-03-04", shloka: "अव्यक्तोऽयमचिन्त्योऽयमविकार्योऽयमुच्यते ।", meaning: "The soul is said to be unmanifest, inconceivable, and unchangeable." },
+	{ date: "2026-03-05", shloka: "क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते ।", meaning: "Do not yield to unmanliness, O Partha. It does not befit you." },
+	{ date: "2026-03-06", shloka: "मृत्युः सर्वहरश्चाहम् उद्भवश्च भविष्यताम् ।", meaning: "I am all-devouring death, and I am the origin of all that is yet to be." },
+	{ date: "2026-03-07", shloka: "सर्वस्य चाहं हृदि सन्निविष्टो", meaning: "I am seated in everyone's heart." },
+	{ date: "2026-03-08", shloka: "मच्चित्तः सर्वदुर्गाणि मत्प्रसादात्तरिष्यसि ।", meaning: "By My grace, you shall overcome all obstacles." },
+	{ date: "2026-03-09", shloka: "मय्येव मन आधत्स्व मयि बुद्धिं निवेशय ।", meaning: "Fix your mind on Me alone, let your intellect dwell in Me." },
+	{ date: "2026-03-10", shloka: "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते ।", meaning: "I am the source of all spiritual and material worlds. Everything emanates from Me." },
+	{ date: "2026-03-11", shloka: "तेषां सततयुक्तानां भजतां प्रीतिपूर्वकम् ।", meaning: "To those who are constantly devoted and worship Me with love, I give the understanding by which they can come to Me." },
+	{ date: "2026-03-12", shloka: "सर्वभूतस्थमात्मानं सर्वभूतानि चात्मनि ।", meaning: "He who sees the Self in all beings and all beings in the Self, never turns away from it." },
+	{ date: "2026-03-13", shloka: "उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।", meaning: "Elevate yourself by your own self, do not degrade yourself." },
+	{ date: "2026-03-14", shloka: "श्रीभगवानुवाच: कुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् ।", meaning: "The Blessed Lord said: Whence has this dejection come upon you in this hour of crisis?" },
+	{ date: "2026-03-15", shloka: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते ।", meaning: "There is nothing so purifying as knowledge in this world." },
+	{ date: "2026-03-16", shloka: "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज ।", meaning: "Abandon all varieties of religion and just surrender unto Me." },
+	{ date: "2026-03-17", shloka: "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।", meaning: "Always think of Me, become My devotee, worship Me, and offer your homage unto Me." },
+	{ date: "2026-03-18", shloka: "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः ।", meaning: "Wherever there is Krishna, the master of yoga, and Arjuna, the supreme archer, there will also surely be fortune, victory, prosperity, and sound morality." },
+	// ...repeat or add more shlokas as needed for each date...
+	// For brevity, you can continue the above pattern, cycling through the shlokas, until 2026-07-17:
+	{ date: "2026-07-17", shloka: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।", meaning: "You have the right to perform your actions, but not to the fruits thereof." }
+];
+
+	// Helper to get YYYY-MM-DD string for today
+	function getTodayDateStr() {
+		const d = new Date();
+		return d.toISOString().slice(0,10);
+	}
+
+	// Find shloka for today by date, or fallback to first if not found
+	function getTodayShloka() {
+		const today = getTodayDateStr();
+		const found = shlokas.find(s => s.date === today);
+		if (found) return found;
+
+		// If today's date not found, show shloka by offset from first date
+		const firstDate = new Date(shlokas[0].date);
+		const now = new Date(today);
+		const diffDays = Math.floor((now - firstDate) / (1000*60*60*24));
+		const idx = ((diffDays % shlokas.length) + shlokas.length) % shlokas.length;
+		return shlokas[idx];
+	}
+
+	function setShlokaBox() {
+		const s = getTodayShloka();
+		document.getElementById("shlokaDate").textContent = "Date: " + s.date;
+		document.getElementById("shloka").textContent = s.shloka;
+		document.getElementById("meaning").textContent = s.meaning;
+
+		// WhatsApp share
+		const shareText = `🌞 Daily Shloka (${s.date})\n${s.shloka}\n\nMeaning: ${s.meaning}\n\nRead more at: https://yourwebsite.com`;
+		document.getElementById("shareWhatsapp").href =
+			"https://wa.me/?text=" + encodeURIComponent(shareText);
+
+		// Copy for Instagram
+		document.getElementById("copyInstagram").onclick = function() {
+			navigator.clipboard.writeText(
+				`🌞 Daily Shloka (${s.date})\n${s.shloka}\n\nMeaning: ${s.meaning}\n\n#BhagavadGita #Shloka #DailyWisdom`
+			).then(function() {
+				document.getElementById("copy-status").textContent = "Copied for Instagram!";
+				setTimeout(() => document.getElementById("copy-status").textContent = "", 1800);
+			});
+		};
+
+		// Close button
+		document.getElementById("closeShloka").onclick = function() {
+			document.getElementById("shlokaBox").style.display = "none";
+		};
+	}
+	document.addEventListener("DOMContentLoaded", setShlokaBox);
+	</script>
+
+
+
+
+	
+
+<!-- Chatbot Floating Button & Widget -->
+<style>
+	#chatbot-fab {
+		position: fixed;
+		bottom: 32px;
+		right: 32px;
+		z-index: 9999;
+		background: linear-gradient(135deg, #4fc3f7 60%, #1976d2 100%);
+		color: #fff;
+		border: none;
+		border-radius: 50%;
+		width: 62px;
+		height: 62px;
+		box-shadow: 0 4px 18px rgba(44,62,80,0.18);
+		font-size: 2em;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background 0.18s, box-shadow 0.18s;
+	}
+	#chatbot-fab:hover {
+		background: linear-gradient(135deg, #1976d2 60%, #4fc3f7 100%);
+		box-shadow: 0 8px 32px rgba(44,62,80,0.22);
+	}
+	#chatbot-widget {
+		position: fixed;
+		bottom: 110px;
+		right: 32px;
+		width: 340px;
+		max-width: 96vw;
+		height: 480px;
+		background: #fff;
+		border-radius: 18px;
+		box-shadow: 0 8px 32px rgba(44,62,80,0.22);
+		z-index: 10000;
+		display: none;
+		flex-direction: column;
+		overflow: hidden;
+		border: 2px solid #4fc3f7;
+		animation: chatbot-pop 0.22s;
+	}
+	@keyframes chatbot-pop {
+		0% { transform: scale(0.8); opacity: 0; }
+		100% { transform: scale(1); opacity: 1; }
+	}
+	#chatbot-header {
+		background: linear-gradient(90deg, #4fc3f7 60%, #1976d2 100%);
+		color: #fff;
+		padding: 14px 18px;
+		font-size: 1.15em;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	#chatbot-header .close-btn {
+		background: none;
+		border: none;
+		color: #fff;
+		font-size: 1.3em;
+		cursor: pointer;
+		opacity: 0.7;
+		transition: opacity 0.15s;
+	}
+	#chatbot-header .close-btn:hover {
+		opacity: 1;
+	}
+	#chatbot-iframe {
+		border: none;
+		width: 100%;
+		height: 100%;
+		flex: 1 1 auto;
+		background: #f7fafd;
+	}
+</style>
+<!-- Floating Chatbot Button -->
+<button id="chatbot-fab" title="Chat with Gita AI" style="font-size:2.1em; background: linear-gradient(135deg, #f3ef06 60%, #ff3c00 100%);">
+	<span aria-label="Om" role="img" style="font-family: 'Noto Sans Devanagari', 'Segoe UI', Arial, sans-serif;">ॐ</span>
+</button>
+<!-- Chatbot Widget -->
+<div id="chatbot-widget">
+	<div id="chatbot-header">
+		<span>Gita Chat AI</span>
+		<button class="close-btn" title="Close">&times;</button>
+	</div>
+	<iframe id="chatbot-iframe" src="https://gitagpt.org/" title="Gita Chat AI"></iframe>
+</div>
+<script>
+	// Show/hide chatbot widget
+	const fab = document.getElementById('chatbot-fab');
+	const widget = document.getElementById('chatbot-widget');
+	const closeBtn = widget.querySelector('.close-btn');
+	fab.onclick = () => { widget.style.display = 'flex'; fab.style.display = 'none'; };
+	closeBtn.onclick = () => { widget.style.display = 'none'; fab.style.display = 'flex'; };
+</script>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>श्रीमद्भगवद्गीता</h1>
+								 <p>The Bhagavad Geeta is a timeless conversation between Lord Krishna and Arjuna, 
+									offering guidance on life, duty, and the path to liberation.</p>
+							</div>
+							<div class="hero">
+								<h2>Welcome to the Divine Wisdom of the Bhagavad Geeta</h2>
+								<p>Explore chapters, translations, and inner peace.</p>
+							  </div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Intro</a></li>
+								<li><a href="#donate">Donate</a></li>
+								<li><a href="#about">About</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<li><a href="#chapters">Chapters</a></li>
+								<li><a href="GeetaVideo.html">Geeta Video</a></li>
+								<li><a href="Quiz.html">Quiz</a></li>
+								<li><a href="#languages">Languages</a></li>
+								
+									
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">Intro</h2>
+								<span class="image main"><img src="images/krishna35.jpg" alt="" /></span>
+								<header>
+									<h2>Introduction to the Bhagavad Geeta</h2>
+								  </header>
+								  <section>
+									<h3>What is the Bhagavad Geeta?</h3>
+									<p>The Bhagavad Geeta is a 700-verse Sanskrit scripture that is part of the Indian epic Mahabharata. It is a dialogue between Lord Krishna and Arjuna, set on the battlefield of Kurukshetra.</p>
+								
+									<h3>Author and Origin</h3>
+									<p>It was narrated by Lord Krishna and written down by Sage Vyasa. It provides philosophical and practical guidance for daily living.</p>
+								
+									<h3>Why is it Important?</h3>
+									<p>Geeta teaches us how to live with purpose, stay calm in challenges, and connect with our true self. It is relevant even today — for students, leaders, and seekers of peace.</p>
+								
+									<h3>Languages</h3>
+									<p>We provide translations in English, Hindi, and Marathi for better understanding.</p>
+									<a href="index.html" class="back">← Back to Home</a>
+  </section>
+
+  <footer>
+    <p>Jai Shri Krishna ✨ | Contact: geeta@example.com  ✨ | Created By Pooja Vaidya</p>
+  </footer>
+								</article>
+
+						<!-- Donate -->
+							<article id="donate">
+								<h2 class="major">Donate</h2>
+								<span class="image main"><img src="images/krishna45.jpg" alt="" /></span>
+								<header>
+									<h2>Support Our Work</h2>
+								  </header>
+								  <div class="content">
+									<h3>Help Us Spread the Wisdom of the Geeta</h3>
+									<p>Your generous support helps us maintain this website, create content, and reach more seekers with the timeless message of the Bhagavad Geeta.</p>
+								
+									<div class="donate-box">
+									  <p>If you wish to donate, you can use the QR Code below:</p>
+									  
+								
+									<!-- Optional QR Code image -->
+									<img src="images/QR.jpg" alt="Scan UPI QR Code" style="max-width:180px; display:block; margin:12px auto 0; border-radius:10px; box-shadow:0 2px 8px rgba(44,62,80,0.12);" />
+									  
+									  <p style="margin-top: 10px; font-size: 14px; color: #e1a0a0;">Scan this code in any UPI app (PhonePe, Google Pay, etc.)</p>
+									</div>
+								
+									<p style="margin-top: 40px;">
+									  Thank you for supporting this divine journey! 🙏
+									</p>
+								
+									<a href="index.html" class="back">← Back to Home</a>
+									<footer>
+										<p>© 2025 Bhagavad Geeta ✨ | Created By Pooja Vaidya</p>
+									  </footer>
+								  </div>
+								
+
+							</article>
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">About</h2>
+								<span class="image main"><img src="images/krishna44.jpg" alt="" /></span>
+								<div class="content">
+									<h3>Why This Website?</h3>
+									<p>This website is created to share the divine knowledge of the <strong>Shreemad Bhagavad Geeta</strong> with people across the world. It is designed for readers of all ages who wish to learn and reflect on the timeless wisdom spoken by Lord Krishna.</p>
+								
+									<h3>Our Vision</h3>
+									<p>We believe that the teachings of the Geeta can help people find peace, clarity, and purpose in today’s challenging world. Our aim is to make the Geeta accessible in multiple languages—<strong>Sanskrit, Marathi, Hindi, and English</strong>.</p>
+								
+									<h3>About the Creator</h3>
+									<p>My name is <strong>Pooja Deshmukh</strong>. I’m passionate about spirituality, learning, and sharing knowledge. This website is a humble offering towards spreading the eternal message of the Bhagavad Geeta.</p>
+								
+									<h3>What You’ll Find Here</h3>
+									<ul>
+									  <li>All chapters of the Bhagavad Geeta</li>
+									  <li>Simple translations and meanings in 3 languages</li>
+									  <li>Clean layout with focus on readability</li>
+									  <li>Respectful and devotional presentation</li>
+									</ul>
+								
+									<p style="margin-top: 20px;"><em>“Let us walk the path of dharma together.”</em></p>
+								  </div>
+								  <a href="index.html" class="back">← Back to Home</a>
+								  <footer>
+									<p>© 2025 Bhagavad Geeta ✨ | Created By Pooja Vaidya</p></p>
+								  </footer>
+
+	                        </article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+								<a href="index.html" class="back">← Back to Home</a>
+								<footer>
+								  <p>© 2025 Bhagavad Geeta ✨ | Created By Pooja Vaidya</p></p>
+								</footer>
+							</article>
+
+							<!-- Chapters -->
+
+							<article id="chapters">
+								
+								<h2 class="major">Chapters</h2>
+								<span class="image main"><img src="images/krishna46.jpg" alt="" /></span>
+								<div class="content">
+									<h3>----------भगवद्गगीता अध्याय-----------</h3>
+
+                            <table>
+                               <tr>						
+      <th>Chapter No.</th>
+      <th>Sanskrit Name</th>
+      <th>English Title</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>अर्जुन विषाद योग</td>
+      <td>Arjuna Vishada Yoga</td>
+      <td><a href="chapter-1.html">Read Chapter</a></td>
+	
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>सांख्य योग</td>
+      <td>Sankhya Yoga</td>
+      <td><a href="chapter-2.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>कर्म योग</td>
+      <td>Karma Yoga</td>
+      <td><a href="chapter-3.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>ज्ञान कर्म संन्यास योग</td>
+      <td>Jnana Karma Sannyasa Yoga</td>
+      <td><a href="chapter-4.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>कर्म संन्यास योग</td>
+      <td>Karma Sannyasa Yoga</td>
+      <td><a href="chapter-5.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>ध्यान योग</td>
+      <td>Dhyana Yoga</td>
+      <td><a href="chapter-6.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>ज्ञान विज्ञान योग</td>
+      <td>Jnana Vijnana Yoga</td>
+      <td><a href="chapter-7.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>अक्षर ब्रह्म योग</td>
+      <td>Akshara Brahma Yoga</td>
+      <td><a href="chapter-8.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>राजविद्या राजगुह्य योग</td>
+      <td>Raja Vidya Raja Guhya Yoga</td>
+      <td><a href="chapter-9.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>विभूति योग</td>
+      <td>Vibhuti Yoga</td>
+      <td><a href="chapter-10.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>विश्वरूप दर्शन योग</td>
+      <td>Vishwarupa Darshana Yoga</td>
+      <td><a href="chapter-11.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>भक्ति योग</td>
+      <td>Bhakti Yoga</td>
+      <td><a href="chapter-12.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>क्षेत्र क्षेत्रज्ञ विभाग योग</td>
+      <td>Kshetra Kshetrajna Vibhaga Yoga</td>
+      <td><a href="chapter-13.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>गुण त्रय विभाग योग</td>
+      <td>Gunatraya Vibhaga Yoga</td>
+      <td><a href="chapter-14.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>पुरुषोत्तम योग</td>
+      <td>Purushottama Yoga</td>
+      <td><a href="chapter-15.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>दैवासुर सम्पद विभाग योग</td>
+      <td>Daivasura Sampad Vibhaga Yoga</td>
+      <td><a href="chapter-16.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>श्रद्धात्रय विभाग योग</td>
+      <td>Shraddhatraya Vibhaga Yoga</td>
+      <td><a href="chapter-17.html">Read Chapter</a></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>मोक्ष संन्यास योग</td>
+      <td>Moksha Sannyasa Yoga</td>
+      <td><a href="chapter-18.html">Read Chapter</a></td>
+    </tr>
+  </table>
+  <a href="index.html" class="back">← Back to Home</a>
+</article>
+
+	<!-- Gita in Different Languages Section -->
+	<article id="languages">
+		<h2 class="major">Gita in Different Languages</h2>
+		<div style="display: flex; justify-content: center; margin-bottom: 18px;">
+			<img src="images/krishna10.jpg" alt="Gita Languages" style="height: 110px; width: 110px; border-radius: 12px; object-fit: cover;"/>
+		</div>
+		<div class="content">
+			<h3>Read the Bhagavad Gita in Your Language</h3>
+			<p>
+				To make the wisdom of the Gita accessible to everyone, we offer translations in multiple Indian and international languages. Select your preferred language below:
+			</p>
+			<div class="languages-list" style="display: flex; flex-wrap: wrap; gap: 18px; margin: 24px 0;">
+				<a href="gita-english.html" class="button primary" style="min-width:120px;">English</a>
+				<a href="gita-hindi.html" class="button" style="min-width:120px;">हिन्दी (Hindi)</a>
+				<a href="gita-marathi.html" class="button" style="min-width:120px;">मराठी (Marathi)</a>
+				<a href="gita-gujarati.html" class="button" style="min-width:120px;">ગુજરાતી (Gujarati)</a>
+				<a href="gita-tamil.html" class="button" style="min-width:120px;">தமிழ் (Tamil)</a>
+				<a href="gita-telugu.html" class="button" style="min-width:120px;">తెలుగు (Telugu)</a>
+				<a href="gita-bengali.html" class="button" style="min-width:120px;">বাংলা (Bengali)</a>
+				<a href="gita-kannada.html" class="button" style="min-width:120px;">ಕನ್ನಡ (Kannada)</a>
+				<a href="gita-malayalam.html" class="button" style="min-width:120px;">മലയാളം (Malayalam)</a>
+				<a href="gita-punjabi.html" class="button" style="min-width:120px;">ਪੰਜਾਬੀ (Punjabi)</a>
+				<a href="gita-urdu.html" class="button" style="min-width:120px;">اردو (Urdu)</a>
+				<a href="gita-french.html" class="button" style="min-width:120px;">Français (French)</a>
+				<a href="gita-german.html" class="button" style="min-width:120px;">Deutsch (German)</a>
+				<a href="gita-spanish.html" class="button" style="min-width:120px;">Español (Spanish)</a>
+				<!-- Add more languages as needed -->
+			</div>
+			<p style="margin-top: 18px; color: #888; font-size: 0.95em;">
+				Can't find your language? <a href="#contact">Contact us</a> to request a translation!
+			</p>
+			<a href="index.html" class="back">← Back to Home</a>
+		</div>
+		<footer><p>
+			<p>© 2025 Bhagavad Geeta |✨ Spreading wisdom in every language</p>
+		</footer>
+	</article>
+
+			 
+					<!-- Elements -->
+							  <article id="elements">
+<!-- <section>
+<!-- Elements -->
+<article id="elements">
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+										<li><a href="#" class="icon brands fa-twitter"></a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div> 
+
+				<!-- Footer -->
+				<footer style="text-align:center; padding: 24px 0; background: rgba(34, 40, 49, 0.95); color: #bbb; font-size: 1em;">
+         --------------------------------------------------------------------------------तुला फक्त कर्म करण्याचा अधिकार आहे; फळावर कधीच नाही.
+कधीही कर्मफळाची अपेक्षा करू नकोस आणि कर्म करण्यास नकारही देऊ नकोस..-------------------------------------------------------------------------
+        <br> &copy; @2025BhagwadGeeta. All rights reserved.
+    </footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+

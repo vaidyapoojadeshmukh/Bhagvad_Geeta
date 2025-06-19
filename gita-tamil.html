@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #222;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #2d2d2d;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+            padding: 32px 24px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        .pdf-viewer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #181818;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+        }
+        .pdf-viewer iframe {
+            width: 100%;
+            min-height: 80vh;
+            border: none;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 12px 2px;
+            }
+            .pdf-viewer iframe {
+                min-height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+     <div style="text-align:center; margin-top:24px;"></div>
+        <a href="file:///C:/Users/Admin/Downloads/html5up-dimension/index.html#languages" style="display:inline-block; background:#444; color:#fff; padding:10px 24px; border-radius:6px; text-decoration:none; font-weight:500; transition:background 0.2s;">
+            &larr; Back to Language Page
+        </a>
+    </div>
+    <div class="container">
+        <h1>திரு பகவத் கீதை</h1>
+        <div class="pdf-viewer">
+            <!-- Replace 'gita-tamil.pdf' with your actual PDF file path -->
+            <iframe 
+            src="assets/pdf/srimat_bhagavatgita tamil.pdf" 
+            allowfullscreen>
+            </iframe>
+        </div>
+        <p style="text-align:center; margin-top:18px; color:#aaa;">
+            <small>PDF கோப்பை நேரடியாக படிக்கவும், ஒவ்வொரு பக்கத்தையும் தனித்தனியாக பார்க்கவும்.</small>
+        </p>
+    </div>
+    <footer style="background:#181818; color:#bbb; text-align:center; padding:18px 0; border-radius:0 0 12px 12px; margin-top:32px; font-size:0.98em;">
+        <div>
+            <span style="font-weight:bold;">&#128218; Bhagvat Geeta Tamil</span> &mdash; 
+            <span>Serving wisdom since 2025</span><br>
+            <span style="font-size:0.93em; color:#888;">&copy; 2025 All rights reserved.</span>
+        </div>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bhagavad Gita - Chapter 14</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <header id="header">
+        <div class="logo">
+            <span class="icon fa-gem"></span>
+        </div>
+        <div class="content">
+            <div class="inner">
+                <h1>Bhagavad Gita - Chapter 14</h1>
+                <p>Read the original Sanskrit shlokas with English, Marathi, and Hindi meanings</p>
+            </div>
+        </div>
+        <button id="toggle-theme" style="position:absolute;top:20px;right:30px;padding:8px 18px;border:none;border-radius:20px;background:#222;color:#fff;cursor:pointer;font-size:1em;transition:background 0.3s;">🌙 Dark Mode</button>
+    </header>
+    <style>
+        :root {
+            --bg-light: #fdfdfd;
+            --bg-dark: #181c24;
+            --container-light: #ffffff;
+            --container-dark: #23283a;
+            --border-light: #ddd;
+            --border-dark: #2d3347;
+            --text-light: #333;
+            --text-dark: #e6e6e6;
+            --accent-light: #d35400;
+            --accent-dark: #ffb347;
+            --shloka-light: #555;
+            --shloka-dark: #b3b3b3;
+            --translation-bg-light: #f7f7f7;
+            --translation-bg-dark: #23283a;
+            --footer-light: #666;
+            --footer-dark: #aaa;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: background 0.4s, color 0.4s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: var(--container-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+            transition: background 0.4s, border 0.4s, box-shadow 0.4s;
+        }
+        h1 {
+            text-align: center;
+            color: var(--accent-light);
+            margin-bottom: 15px;
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+        .shloka {
+            font-style: italic;
+            margin: 18px 0 10px 0;
+            text-align: center;
+            color: var(--shloka-light);
+            font-size: 1.18em;
+            letter-spacing: 0.5px;
+        }
+        .translation {
+            margin: 15px 0 25px 0;
+            padding: 14px 18px;
+            background-color: var(--translation-bg-light);
+            border-radius: 7px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px 0 rgba(211,84,0,0.04);
+            transition: background 0.4s, border 0.4s;
+        }
+        .translation h2 {
+            color: var(--accent-light);
+            margin-bottom: 7px;
+            font-size: 1.13em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .translation p {
+            margin: 5px 0 10px 0;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: var(--footer-light);
+            background: transparent;
+            padding-bottom: 20px;
+            transition: color 0.4s;
+        }
+        .footer-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .footer-link:hover {
+            color: #b34700 !important;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        body.dark-mode .container {
+            background: var(--container-dark);
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+        }
+        body.dark-mode h1 {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .shloka {
+            color: var(--shloka-dark);
+        }
+        body.dark-mode .translation {
+            background-color: var(--translation-bg-dark);
+            border: 1px solid var(--border-dark);
+        }
+        body.dark-mode .translation h2 {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .translation p {
+            color: var(--text-dark);
+        }
+        body.dark-mode .footer-link {
+            color: var(--accent-dark);
+        }
+        body.dark-mode .footer-link:hover {
+            color: #ffd580 !important;
+        }
+        body.dark-mode footer {
+            color: var(--footer-dark);
+        }
+        #toggle-theme {
+            z-index: 100;
+        }
+    </style>
+    <script>
+        const btn = document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+                document.body.classList.add('dark-mode');
+                toggleBtn.textContent = '☀️ Light Mode';
+            }
+            toggleBtn.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                if(document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    toggleBtn.textContent = '☀️ Light Mode';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    toggleBtn.textContent = '🌙 Dark Mode';
+                }
+            });
+        });
+    </script>
+    <!-- Navigation Buttons at the Top -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px auto 10px auto; max-width: 800px;">
+            
+            <a href="index.html" class="footer-link">Home</a> |
+            <a href="chapter-13.html" class="footer-link">Previous Chapter</a> |
+            <a href="chapter-15.html" class="footer-link">Next Chapter</a>
+        </div>
+        <style>
+            .footer-btn-left, .footer-btn-right {
+                display: inline-block;
+                padding: 8px 22px;
+                border-radius: 22px;
+                background: #f7f7f7;
+                border: 1px solid #d35400;
+                color: #d35400;
+                font-weight: 600;
+                text-decoration: none;
+                transition: background 0.2s, color 0.2s, border 0.2s;
+                box-shadow: 0 2px 8px 0 rgba(211,84,0,0.04);
+            }
+            .footer-btn-left:hover, .footer-btn-right:hover {
+                background: #d35400;
+                color: #fff !important;
+                border-color: #b34700;
+            }
+            body.dark-mode .footer-btn-left,
+            body.dark-mode .footer-btn-right {
+                background: #23283a;
+                color: #ffb347;
+                border: 1px solid #ffb347;
+            }
+            body.dark-mode .footer-btn-left:hover,
+            body.dark-mode .footer-btn-right:hover {
+                background: #ffb347;
+                color: #23283a !important;
+                border-color: #ffd580;
+            }
+        </style>
+    <body>
+        <div class="container">
+            <div class="shloka">
+                प्रकृतिं पुरुषं चैव क्षेत्रं क्षेत्रज्ञ एव च ।<br>
+                एतद्वेदितुमिच्छामि ज्ञानं ज्ञेयं च केशव ॥ 14.1 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    O Keshava, I wish to understand Prakriti (nature) and Purusha (the enjoyer), the field and the knower of the field, knowledge and that which is to be known.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    हे केशवा, मला प्रकृती, पुरुष, क्षेत्र आणि क्षेत्रज्ञ, ज्ञान आणि ज्ञेय हे समजून घ्यायचे आहे.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    हे केशव! मैं प्रकृति और पुरुष, क्षेत्र और क्षेत्रज्ञ, ज्ञान और ज्ञेय को जानना चाहता हूँ।
+                </p>
+            </div>
+            <div class="shloka">
+                क्षेत्रज्ञं चापि मां विद्धि सर्वक्षेत्रेषु भारत ।<br>
+                क्षेत्रक्षेत्रज्ञयोर्ज्ञानं यत्तज्ज्ञानं मतं मम ॥ 14.2 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    O Bharata, know Me also as the knower in all fields. The knowledge of the field and the knower of the field is considered by Me to be true knowledge.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    हे भारत, सर्व क्षेत्रांमध्ये क्षेत्रज्ञ म्हणून मलाही ओळख. क्षेत्र आणि क्षेत्रज्ञ यांचे ज्ञान हेच माझ्या मते खरे ज्ञान आहे.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    हे भारत! सभी क्षेत्रों में क्षेत्रज्ञ मुझे ही जानो। क्षेत्र और क्षेत्रज्ञ का ज्ञान ही मेरे मत में सच्चा ज्ञान है।
+                </p>
+            </div>
+
+            <div class="shloka">
+                तत्क्षेत्रं यच्च यादृक्च यद्विकारि यतश्च यत् ।<br>
+                स च यो यत्प्रभावश्च तत्समासेन मे शृणु ॥ 14.3 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    What that field is, what its nature is, what its modifications are, and from what it has arisen, and who He is and what His powers are—hear all this from Me in brief.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    ते क्षेत्र काय आहे, त्याची प्रकृती, त्याचे विकार, ते कशापासून उत्पन्न झाले आहे, क्षेत्रज्ञ कोण आहे आणि त्याची शक्ती काय आहे—हे सर्व मी तुला संक्षेपाने सांगतो.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    वह क्षेत्र क्या है, उसकी प्रकृति कैसी है, उसके विकार क्या हैं, वह किससे उत्पन्न हुआ है, क्षेत्रज्ञ कौन है और उसकी शक्ति क्या है—यह सब मुझसे संक्षेप में सुनो।
+                </p>
+            </div>
+
+            <div class="shloka">
+                ऋषिभिर्बहुधा गीतं छन्दोभिर्विविधैः पृथक् ।<br>
+                ब्रह्मसूत्रपदैश्चैव हेतुमद्भिर्विनिश्चितैः ॥ 14.4 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    The sages have sung of it in many ways, in various distinctive chants, and also in the reasoned and definitive words of the Brahma Sutras.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    ऋषींनी विविध प्रकारे, विविध छंदांमध्ये आणि ब्रह्मसूत्रातील तर्कयुक्त व निश्चित शब्दांत या विषयाचे वर्णन केले आहे.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    ऋषियों ने इस विषय को अनेक प्रकार से, विभिन्न छंदों में और ब्रह्मसूत्रों के तर्कयुक्त और निश्चित शब्दों में गाया है।
+                </p>
+            </div>
+
+            <div class="shloka">
+                महद् ब्रह्म तदन्योनिर्मम गर्भं दधाम्यहम् ।<br>
+                सम्भवः सर्वभूतानां ततो भवति भारत ॥ 14.5 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    The great Brahman is My womb; in that I place the seed; from that, O Bharata, is the birth of all beings.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    महान ब्रह्म ही माझी गर्भधारणा आहे; त्यात मी बीज ठेवतो; त्यातूनच, हे भारत, सर्व प्राण्यांचा जन्म होतो.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    महान ब्रह्म मेरी गर्भधारणा है; उसमें मैं बीज स्थापित करता हूँ; उसी से, हे भारत, सभी प्राणियों का जन्म होता है।
+                </p>
+            </div>
+
+            <div class="shloka">
+                सर्वयोनिषु कौन्तेय मूर्तयः सम्भवन्ति याः ।<br>
+                तासां ब्रह्म महद्योनिरहं बीजप्रदः पिता ॥ 14.6 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    O son of Kunti, in all wombs, whatever forms are produced, the great Brahman is their womb, and I am the seed-giving father.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    हे कौन्तेय, सर्व योनींमध्ये जी जी रूपे उत्पन्न होतात, त्यांचा गर्भ महद् ब्रह्म आहे आणि मी बीज देणारा पिता आहे.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    हे कौन्तेय! सभी योनियों में जो भी रूप उत्पन्न होते हैं, उनका गर्भ महद् ब्रह्म है और मैं बीज देने वाला पिता हूँ।
+                </p>
+            </div>
+            <div class="shloka">
+                सत्त्वं रजस्तम इति गुणाः प्रकृतिसम्भवाः ।<br>
+                निबध्नन्ति महाबाहो देहे देहिनमव्ययम् ॥ 14.7 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    O mighty-armed one, Sattva, Rajas, and Tamas—these qualities born of nature—bind the imperishable soul to the body.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    हे महाबाहो, सत्त्व, रज आणि तम हे प्रकृतीजन्म गुण अविनाशी आत्म्याला शरीराशी बांधून ठेवतात.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    हे महाबाहो! सत्त्व, रज और तम—ये प्रकृति से उत्पन्न गुण अविनाशी आत्मा को शरीर से बाँधते हैं।
+                </p>
+            </div>
+
+            <div class="shloka">
+                तत्र सत्त्वं निर्मलत्वात्प्रकाशकमनामयम् ।<br>
+                सुखसङ्गेन बध्नाति ज्ञानसङ्गेन चानघ ॥ 14.8 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Of these, Sattva, being pure, is illuminating and free from disease; it binds by attachment to happiness and by attachment to knowledge, O sinless one.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    त्यात सत्त्व हे निर्मळ असल्यामुळे प्रकाशमान व निरोगी आहे; ते सुखाच्या आणि ज्ञानाच्या आसक्तीने बांधून ठेवते, हे निष्पाप.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    इनमें सत्त्व गुण निर्मल होने के कारण प्रकाशमान और रोगरहित है; यह सुख और ज्ञान के संबंध से बाँधता है, हे निष्पाप!
+                </p>
+            </div>
+
+            <div class="shloka">
+                रजो रागात्मकं विद्धि तृष्णासङ्गसमुद्भवम् ।<br>
+                तन्निबध्नाति कौन्तेय कर्मसङ्गेन देहिनम् ॥ 14.9 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Know Rajas to be of the nature of passion, the source of thirst and attachment; it binds the embodied being by attachment to action, O son of Kunti.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    रज हा रागात्मक आहे, तृष्णा व आसक्तीचा जन्मदाता आहे; तो कर्माच्या आसक्तीने देहधारकाला बांधतो, हे कौन्तेय.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    रज को रागात्मक जानो, यह तृष्णा और आसक्ति से उत्पन्न होता है; यह कर्म की आसक्ति से देही को बाँधता है, हे कौन्तेय!
+                </p>
+            </div>
+
+            <div class="shloka">
+                तमस्त्वज्ञानजं विद्धि मोहनं सर्वदेहिनाम् ।<br>
+                प्रमादालस्यनिद्राभिस्तन्निबध्नाति भारत ॥ 14.10 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    But know Tamas, born of ignorance, to be the deluder of all embodied beings; it binds by negligence, indolence, and sleep, O Bharata.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    तम हा अज्ञानातून उत्पन्न होतो, सर्व देहधारकांना मोहात टाकतो; प्रमाद, आळस आणि झोप यांद्वारे तो बांधतो, हे भारत.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    तम को अज्ञान से उत्पन्न जानो, यह सभी देहधारियों को मोहित करता है; प्रमाद, आलस्य और निद्रा से बाँधता है, हे भारत!
+                </p>
+            </div>
+
+            <div class="shloka">
+                सत्त्वं सुखे सञ्जयति रजः कर्मणि भारत ।<br>
+                ज्ञानमावृत्य तु तमः प्रमादे सञ्जयत्युत ॥ 14.11 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Sattva attaches one to happiness, Rajas to action, O Bharata; while Tamas, covering knowledge, leads to negligence.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    सत्त्व सुखाशी, रज कर्माशी, आणि तम ज्ञान झाकून प्रमादाशी जोडतो, हे भारत.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    सत्त्व सुख से, रज कर्म से, और तम ज्ञान को ढककर प्रमाद से जोड़ता है, हे भारत!
+                </p>
+            </div>
+            <div class="shloka">
+                सर्वद्वारेषु देहेऽस्मिन्प्रकाश उपजायते ।<br>
+                ज्ञानं यदा तदा विद्याद्विवृद्धं सत्त्वमित्युत ॥ 14.12 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    When, through every gate in this body, the light of knowledge shines, then it may be known that Sattva is predominant.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    या शरीरातील सर्व द्वारांतून ज्ञानाचा प्रकाश प्रकट होतो, तेव्हा समजावे की सत्त्व वाढले आहे.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    जब इस शरीर के सभी द्वारों से ज्ञान का प्रकाश उत्पन्न होता है, तब समझो कि सत्त्व की वृद्धि हुई है।
+                </p>
+            </div>
+
+            <div class="shloka">
+                लोभः प्रवृत्तिरारम्भः कर्मणामशमः स्पृहा ।<br>
+                रजस्येतानि जायन्ते विवृद्धे भरतर्षभ ॥ 14.13 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Greed, activity, undertaking of actions, restlessness, and craving—these arise when Rajas is predominant, O best of the Bharatas.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    लोभ, प्रवृत्ती, कर्मांची सुरुवात, अस्थिरता आणि इच्छा—हे सर्व रज वाढल्यावर उत्पन्न होतात, हे भरतश्रेष्ठ.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    लोभ, प्रवृत्ति, कर्मों का आरंभ, अशांति और स्पृहा—ये सब रज की वृद्धि पर उत्पन्न होते हैं, हे भरतश्रेष्ठ।
+                </p>
+            </div>
+
+            <div class="shloka">
+                अप्रकाशोऽप्रवृत्तिश्च प्रमादो मोह एव च ।<br>
+                तमस्येतानि जायन्ते विवृद्धे कुरुनन्दन ॥ 14.14 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Darkness, inactivity, heedlessness, and delusion—these arise when Tamas is predominant, O joy of the Kurus.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    अंधार, निष्क्रियता, प्रमाद आणि मोह—हे सर्व तम वाढल्यावर उत्पन्न होतात, हे कुरुनंदन.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    अज्ञान, निष्क्रियता, प्रमाद और मोह—ये सब तम की वृद्धि पर उत्पन्न होते हैं, हे कुरुनंदन।
+                </p>
+            </div>
+
+            <div class="shloka">
+                यदा सत्त्वे प्रवृद्धे तु प्रलयं याति देहभृत् ।<br>
+                तदोत्तमविदां लोकानमलान्प्रतिपद्यते ॥ 14.15 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    When one dies while Sattva is predominant, he attains to the pure worlds of those who know the highest.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    जेव्हा सत्त्व वाढलेले असताना देहधारी मृत्यू पावतो, तेव्हा तो उत्तम ज्ञानी लोकांच्या निर्मळ लोकांना प्राप्त होतो.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    जब सत्त्व की वृद्धि के समय देहधारी मृत्यु को प्राप्त होता है, तब वह उत्तम ज्ञानियों के निर्मल लोकों को प्राप्त होता है।
+                </p>
+            </div>
+
+            <div class="shloka">
+                रजसि प्रलयं गत्वा कर्मसङ्गिषु जायते ।<br>
+                तथा प्रलीनस्तमसि मूढयोनिषु जायते ॥ 14.16 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Dying in Rajas, one is born among those attached to action; dying in Tamas, one is born in the wombs of the deluded.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    रज वाढलेल्या वेळी मृत्यू आल्यास, तो कर्माशी आसक्त लोकांमध्ये जन्म घेतो; तम वाढलेल्या वेळी मृत्यू आल्यास, तो मूढ योनींमध्ये जन्म घेतो.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    रज में मृत्यु होने पर वह कर्म में आसक्त लोगों में जन्म लेता है; तम में मृत्यु होने पर वह मूढ़ योनियों में जन्म लेता है।
+                </p>
+            </div>
+            <div class="shloka">
+                कर्मणः सुकृतस्याहुः सात्त्विकं निर्मलं फलम् ।<br>
+                रजसस्तु फलं दुःखम् अज्ञानं तमसः फलम् ॥ 14.17 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    The fruit of good action is said to be pure and Sattvic; the fruit of Rajas is pain, and ignorance is the fruit of Tamas.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    सुकृत कर्माचे फळ निर्मळ व सात्त्विक असते; रजसाचे फळ दुःख असते आणि तमसाचे फळ अज्ञान असते.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    शुभ कर्म का फल निर्मल और सात्त्विक कहा गया है; रजस का फल दुःख है और तमस का फल अज्ञान है।
+                </p>
+            </div>
+
+            <div class="shloka">
+                सत्त्वात् संजायते ज्ञानं रजसो लोभ एव च ।<br>
+                प्रमादमोहौ तमसो भवतोऽज्ञानमेव च ॥ 14.18 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    From Sattva arises knowledge, from Rajas greed; from Tamas arise negligence, delusion, and ignorance.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    सत्त्वातून ज्ञान, रजसातून लोभ, आणि तमसातून प्रमाद, मोह व अज्ञान उत्पन्न होतात.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    सत्त्व से ज्ञान उत्पन्न होता है, रजस से लोभ, और तमस से प्रमाद, मोह तथा अज्ञान उत्पन्न होते हैं।
+                </p>
+            </div>
+
+            <div class="shloka">
+                ऊर्ध्वं गच्छन्ति सत्त्वस्था मध्ये तिष्ठन्ति राजसाः ।<br>
+                जघन्यगुणवृत्तिस्था अधो गच्छन्ति तामसाः ॥ 14.19 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Those established in Sattva go upwards; the Rajasic dwell in the middle; the Tamasic, abiding in the lowest qualities, go downwards.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    सत्त्वगुणी वर जातात, राजसिक मध्यम राहतात, आणि तामसिक नीच गुणांमध्ये अधः जातात.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    सत्त्वगुण वाले ऊपर जाते हैं, राजसिक मध्य में रहते हैं, और तामसिक नीच गुणों में अधोमुख होते हैं।
+                </p>
+            </div>
+
+            <div class="shloka">
+                नान्यं गुणेभ्यः कर्तारं यदा द्रष्टानुपश्यति ।<br>
+                गुणेभ्यश्च परं वेत्ति मद्भावं सोऽधिगच्छति ॥ 14.20 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    When the seer perceives no agent other than the qualities and knows that which is higher than the qualities, he attains My being.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    जेव्हा द्रष्टा गुणांशिवाय दुसरा कर्ता नाही हे पाहतो आणि गुणांपेक्षा श्रेष्ठ त्या तत्वाला ओळखतो, तेव्हा तो माझ्या स्वरूपाला प्राप्त होतो.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    जब द्रष्टा गुणों के अतिरिक्त अन्य कर्ता को नहीं देखता और गुणों से परे उस तत्व को जानता है, तब वह मेरी स्थिति को प्राप्त होता है।
+                </p>
+            </div>
+
+            <div class="shloka">
+                गुणानेतानतीत्य त्रीन्देही देहसमुद्भवान् ।<br>
+                जन्ममृत्युजरादुःखैर्विमुक्तोऽमृतमश्नुते ॥ 14.21 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    The embodied one, transcending these three qualities which arise from the body, freed from birth, death, old age, and sorrow, attains immortality.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    देहधारी हा शरीरातून उत्पन्न होणाऱ्या या तीन गुणांना ओलांडून, जन्म, मृत्यू, जरा आणि दुःखांपासून मुक्त होऊन अमरत्व प्राप्त करतो.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    देहधारी इन तीनों गुणों को पार करके, जन्म, मृत्यु, जरा और दुःख से मुक्त होकर अमरत्व को प्राप्त करता है।
+                </p>
+            </div>
+            <div class="shloka">
+                अर्जुन उवाच<br>
+                कैर्लिङ्गैस्त्रीन्गुणानेतानतीतो भवति प्रभो ।<br>
+                किमाचारः कथं चैतांस्त्रीन्गुणानतिवर्तते ॥ 14.22 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Arjuna said: By what marks is he recognized who has transcended these three qualities, O Lord? What is his conduct and how does he go beyond these three qualities?
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    अर्जुन म्हणाला: प्रभो, या तीन गुणांना ओलांडणारा कोणत्या लक्षणांनी ओळखता येतो? त्याचे आचार कसे आहेत आणि तो या तीन गुणांना कसा ओलांडतो?
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    अर्जुन ने कहा: हे प्रभु! जो इन तीनों गुणों से परे है, उसकी पहचान किन लक्षणों से होती है? उसका आचरण कैसा है और वह इन तीनों गुणों को कैसे पार करता है?
+                </p>
+            </div>
+
+            <div class="shloka">
+                श्रीभगवानुवाच<br>
+                प्रकाशं च प्रवृत्तिं च मोहमेव च पाण्डव ।<br>
+                न द्वेष्टि सम्प्रवृत्तानि न निवृत्तानि काङ्क्षति ॥ 14.23 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    The Blessed Lord said: O Pandava, he who does not hate illumination, activity, and delusion when they appear, nor longs for them when they disappear;
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    भगवान म्हणाले: हे पांडव, जो प्रकाश, प्रवृत्ती आणि मोह यांचा उदय झाल्यावर द्वेष करत नाही आणि त्यांच्या लय झाल्यावर त्यांची इच्छा करत नाही;
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    श्रीभगवान ने कहा: हे पाण्डव! जो प्रकाश, प्रवृत्ति और मोह के प्रकट होने पर उनसे द्वेष नहीं करता और उनके लुप्त होने पर उनकी इच्छा नहीं करता;
+                </p>
+            </div>
+
+            <div class="shloka">
+                उदासीनवदासीनो गुणैर्यो न विचाल्यते ।<br>
+                गुणा वर्तन्त इत्येव योऽवतिष्ठति नेङ्गते ॥ 14.24 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Who, seated like one unconcerned, is not disturbed by the qualities, and who knows that the qualities alone act and remains unmoved;
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    जो उदासीनासारखा स्थित राहतो, गुणांनी विचलित होत नाही आणि 'गुणच कार्य करतात' असे जाणतो, तो स्थिर राहतो;
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    जो उदासीन की भाँति स्थित रहता है, गुणों से विचलित नहीं होता और जानता है कि केवल गुण ही कार्य करते हैं, वह स्थिर रहता है;
+                </p>
+            </div>
+
+            <div class="shloka">
+                समदुःखसुखः स्वस्थः समलोष्टाश्मकाञ्चनः ।<br>
+                तुल्यप्रियाप्रियो धीरस्तुल्यनिन्दात्मसंस्तुतिः ॥ 14.25 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Who is alike in pleasure and pain, who dwells in the Self, to whom a clod, a stone, and gold are alike, who is steady and equal-minded towards the pleasant and the unpleasant, who is wise and the same in censure and praise;
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    जो सुख-दुःखात सम आहे, स्वस्थित आहे, माती, दगड आणि सोने यांना सारखे मानतो, प्रिय-अप्रियात सम आहे, निंदा-स्तुतीत सम आहे, तो धीर आहे;
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    जो सुख-दुःख में सम है, आत्मस्थित है, मिट्टी, पत्थर और सोने को समान मानता है, प्रिय-अप्रिय में सम है, निंदा-स्तुति में सम है, वह धीर है;
+                </p>
+            </div>
+
+            <div class="shloka">
+                मानापमानयोस्तुल्यस्तुल्यो मित्रारिपक्षयोः ।<br>
+                सर्वारम्भपरित्यागी गुणातीतः स उच्यते ॥ 14.26 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    Who is the same in honor and dishonor, the same to friend and foe, who has renounced all undertakings—he is said to have transcended the qualities.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    जो मान-अपमानात सम आहे, मित्र-शत्रूंत सम आहे, सर्व आरंभांचा त्याग केलेला आहे, तो गुणातीत म्हणतात.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    जो मान-अपमान में सम है, मित्र-शत्रु में सम है, सभी आरंभों का त्याग कर चुका है, उसे गुणातीत कहा जाता है।
+                </p>
+            </div>
+            <div class="shloka">
+                मां च योऽव्यभिचारेण भक्तियोगेन सेवते ।<br>
+                स गुणान्समतीत्यैतान्ब्रह्मभूयाय कल्पते ॥ 14.27 ॥
+            </div>
+            <div class="translation">
+                <h2>English Meaning</h2>
+                <p>
+                    But he who, with unwavering devotion, serves Me, transcends these qualities and is fit for becoming Brahman.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Marathi Meaning</h2>
+                <p>
+                    जो अव्यभिचारी भक्तीयोगाने माझी सेवा करतो, तो या सर्व गुणांना ओलांडून ब्रह्मभाव प्राप्त करण्यास पात्र होतो.
+                </p>
+            </div>
+            <div class="translation">
+                <h2>Hindi Meaning</h2>
+                <p>
+                    जो अव्यभिचारी भक्ति से मेरी सेवा करता है, वह इन गुणों को पार कर ब्रह्मभाव को प्राप्त करने के योग्य होता है।
+                </p>
+            </div>
+        </div>
+
+
+
+           <footer>
+       
+        <p>
+            Bhagavad Gita - Chapter 14 &copy; 2025. All rights reserved.
+        </p>
+    </footer>
+    <style>
+        .footer-link:hover {
+            color: #d35400 !important;
+        }
+    </style>
+   
+ </div>   </body></head></html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ebe0a4;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 28px 18px 18px 18px;
+            border: 1px solid #e3e7ee;
+        }
+        h1 {
+            text-align: center;
+            color: #2d3a4a;
+            font-weight: 700;
+            margin-bottom: 22px;
+            font-family: 'Roboto Slab', Arial, sans-serif;
+            font-size: 1.5em;
+        }
+        .section-select {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+        .section-btn {
+            padding: 8px 18px;
+            border: 1px solid #b6c3d1;
+            border-radius: 6px;
+            background: #f7fafc;
+            color: #2d3a4a;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s, border 0.15s;
+        }
+        .section-btn.active, .section-btn:hover {
+            background: #e3e7ee;
+            border-color: #7da0fa;
+            color: #1a237e;
+        }
+        .quiz-form {
+            display: none;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 6px;
+        }
+        .quiz-form.active {
+            display: flex;
+        }
+        .question {
+            font-weight: 600;
+            color: #26334d;
+            background: #eabf87;
+            padding: 8px 12px;
+            border-radius: 5px 5px 0 0;
+            border-bottom: 1px solid #e3e7ee;
+            font-size: 1em;
+        }
+        .options {
+            background: #e2cccc;
+            border-radius: 0 0 5px 5px;
+            padding: 7px 12px 10px 12px;
+        }
+        .options label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            cursor: pointer;
+            font-size: 0.98em;
+            color: #374151;
+        }
+        .options label:last-child {
+            margin-bottom: 0;
+        }
+        .options input[type="radio"] {
+            accent-color: #7da0fa;
+            margin-right: 8px;
+            transform: scale(1.08);
+        }
+        .submit-btn {
+            margin-top: 10px;
+            padding: 10px 0;
+            width: 100%;
+            background: #c5e4cc;
+            color: #ec7c7c;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .submit-btn:hover {
+            background: #cfd6eb;
+        }
+        .result {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 1.08em;
+            color: #388e3c;
+            font-weight: 600;
+            background: #f7fafc;
+            border-radius: 7px;
+            padding: 12px 0;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px 2px 10px 2px;
+            }
+            .section-btn {
+                padding: 7px 6px;
+                font-size: 0.95em;
+            }
+            .question, .options {
+                padding-left: 6px;
+                padding-right: 6px;
+            }
+        }
+    </style>
+    <!-- Google Fonts for Roboto and Roboto Slab -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container shadow-lg">
+        <h1>Fun Quiz</h1>
+        <div class="section-select">
+            <button class="section-btn" data-section="easy">Easy</button>
+            <button class="section-btn" data-section="medium">Medium</button>
+            <button class="section-btn" data-section="hard">Hard</button>
+        </div>
+        <div class="mb-3 text-center">
+            <a href="index.html" class="btn btn-outline-primary">Back to Index</a>
+        </div>
+        <form id="quizForm" class="quiz-form"></form>
+        <div id="result" class="result"></div>
+    </div>
+    <script>
+        const questions = {
+            easy: [
+                {
+                    q: "Who spoke the teachings of the Bhagavad Gita?",
+                    options: ["Arjuna", "Krishna", "Rama", "Hanuman"],
+                    answer: 1
+                },
+                {
+                    q: "On which battlefield was the Bhagavad Gita spoken?",
+                    options: ["Kurukshetra", "Ayodhya", "Mathura", "Lanka"],
+                    answer: 0
+                },
+                {
+                    q: "Who was Arjuna’s charioteer?",
+                    options: ["Bhima", "Duryodhana", "Krishna", "Yudhishthira"],
+                    answer: 2
+                },
+                {
+                    q: "What is the main message of the Bhagavad Gita?",
+                    options: ["Do your duty", "Collect wealth", "Eat sweets", "Travel the world"],
+                    answer: 0
+                },
+                {
+                    q: "Who was Arjuna’s elder brother?",
+                    options: ["Bhima", "Yudhishthira", "Nakula", "Sahadeva"],
+                    answer: 1
+                },
+                {
+                    q: "What does Krishna ask Arjuna to do?",
+                    options: ["Run away", "Fight for justice", "Sleep", "Dance"],
+                    answer: 1
+                },
+                {
+                    q: "Which language was the Bhagavad Gita originally written in?",
+                    options: ["Hindi", "English", "Sanskrit", "Tamil"],
+                    answer: 2
+                },
+                {
+                    q: "How many chapters are there in the Bhagavad Gita?",
+                    options: ["5", "10", "18", "20"],
+                    answer: 2
+                },
+                {
+                    q: "Who was Arjuna fighting against?",
+                    options: ["His friends", "His cousins", "His teachers", "His neighbors"],
+                    answer: 1
+                },
+                {
+                    q: "What does Krishna say about the soul?",
+                    options: ["It can be destroyed", "It is eternal", "It is heavy", "It is visible"],
+                    answer: 1
+                },
+                {
+                    q: "What is the relationship between Krishna and Arjuna?",
+                    options: ["Friends", "Enemies", "Father and son", "Teacher and student"],
+                    answer: 3
+                },
+                {
+                    q: "What does Arjuna feel before the battle?",
+                    options: ["Excited", "Hungry", "Confused and sad", "Angry"],
+                    answer: 2
+                },
+                {
+                    q: "What is the meaning of 'Gita' in Bhagavad Gita?",
+                    options: ["Song", "Story", "Poem", "Dance"],
+                    answer: 0
+                },
+                {
+                    q: "Who wrote down the Mahabharata, which contains the Bhagavad Gita?",
+                    options: ["Valmiki", "Vyasa", "Tulsidas", "Kalidasa"],
+                    answer: 1
+                },
+                {
+                    q: "What does Krishna teach about good actions?",
+                    options: ["Do good and expect reward", "Do good without expecting results", "Do nothing", "Do bad things"],
+                    answer: 1
+                },
+                {
+                    q: "What is the name of Arjuna’s bow?",
+                    options: ["Pinaka", "Gandiva", "Sharanga", "Vijaya"],
+                    answer: 1
+                },
+                {
+                    q: "Who is the eldest Kaurava?",
+                    options: ["Duryodhana", "Dushasana", "Karna", "Ashwatthama"],
+                    answer: 0
+                },
+                {
+                    q: "What does Krishna show Arjuna to encourage him?",
+                    options: ["His magical tricks", "His universal form", "A treasure", "A map"],
+                    answer: 1
+                },
+                {
+                    q: "What is the main theme of the Bhagavad Gita?",
+                    options: ["War", "Love", "Duty and righteousness", "Magic"],
+                    answer: 2
+                },
+                {
+                    q: "Who wins the battle in the end?",
+                    options: ["Kauravas", "Pandavas", "Krishna", "No one"],
+                    answer: 1
+                }
+            ],
+            medium: [
+                {
+                    q: "Who is the main speaker of the Bhagavad Gita?",
+                    options: ["Arjuna", "Krishna", "Bhishma", "Draupadi"],
+                    answer: 1 // Krishna
+                },
+                {
+                    q: "Who listens to Krishna's teachings in the Bhagavad Gita?",
+                    options: ["Arjuna", "Yudhishthira", "Karna", "Duryodhana"],
+                    answer: 0 // Arjuna
+                },
+                {
+                    q: "What is Arjuna's main feeling before the battle starts?",
+                    options: ["Brave", "Happy", "Confused", "Sleepy"],
+                    answer: 2 // Confused
+                },
+                {
+                    q: "Which epic contains the Bhagavad Gita?",
+                    options: ["Vedas", "Ramayana", "Mahabharata", "Upanishads"],
+                    answer: 2 // Mahabharata
+                },
+                {
+                    q: "What does Krishna tell Arjuna about doing his duty?",
+                    options: ["Do it for reward", "Let others do it", "Do it without worrying about results", "Avoid it"],
+                    answer: 2 // Do it without worrying about results
+                },
+                {
+                    q: "Who are the Pandavas fighting against?",
+                    options: ["Rakshasas", "Kauravas", "Devas", "Vanaras"],
+                    answer: 1 // Kauravas
+                },
+                {
+                    q: "What does Krishna show Arjuna to encourage him?",
+                    options: ["A palace", "A chariot", "A rainbow", "His universal form"],
+                    answer: 3 // His universal form
+                },
+                {
+                    q: "What is the Sanskrit word for 'duty' mentioned in the Gita?",
+                    options: ["Karma", "Moksha", "Dharma", "Yoga"],
+                    answer: 2 // Dharma
+                },
+                {
+                    q: "How many verses are there in the Bhagavad Gita?",
+                    options: ["700", "50", "1000", "18"],
+                    answer: 0 // 700
+                },
+                {
+                    q: "Who is the author of the Mahabharata?",
+                    options: ["Vyasa", "Valmiki", "Kalidasa", "Tulsidas"],
+                    answer: 0 // Vyasa
+                },
+                {
+                    q: "What does Krishna say about the soul?",
+                    options: ["It is eternal", "It dies", "It is heavy", "It is visible"],
+                    answer: 0 // It is eternal
+                },
+                {
+                    q: "What is the main teaching of the Gita about actions?",
+                    options: ["Do your duty without attachment", "Do nothing", "Do good and expect reward", "Only think"],
+                    answer: 0 // Do your duty without attachment
+                },
+                {
+                    q: "Which form does Krishna show to Arjuna?",
+                    options: ["Universal form", "Human form", "Animal form", "Child form"],
+                    answer: 0 // Universal form
+                },
+                {
+                    q: "What is the battlefield of the Bhagavad Gita called?",
+                    options: ["Ayodhya", "Kurukshetra", "Mathura", "Lanka"],
+                    answer: 1 // Kurukshetra
+                },
+                {
+                    q: "What does 'Bhagavad Gita' mean?",
+                    options: ["Song of God", "Story of Kings", "Book of Laws", "Poem of Love"],
+                    answer: 0 // Song of God
+                },
+                {
+                    q: "Who is Arjuna's elder brother?",
+                    options: ["Yudhishthira", "Bhima", "Nakula", "Sahadeva"],
+                    answer: 0 // Yudhishthira
+                },
+                {
+                    q: "What does Krishna say about fear?",
+                    options: ["It is good", "It is powerful", "It should be avoided", "It is natural"],
+                    answer: 2 // It should be avoided
+                },
+                {
+                    q: "What is the main goal of life according to the Gita?",
+                    options: ["Collect wealth", "Eat food", "Travel the world", "Reach self-realization"],
+                    answer: 3 // Reach self-realization
+                },
+                {
+                    q: "Who is Arjuna's charioteer?",
+                    options: ["Krishna", "Bhima", "Duryodhana", "Karna"],
+                    answer: 0 // Krishna
+                },
+                {
+                    q: "What does Krishna teach about anger?",
+                    options: ["It is helpful", "It is a gift", "It is fun", "It should be controlled"],
+                    answer: 3 // It should be controlled
+                }
+            ],
+            
+            hard: [
+                {
+                    q: "Which chapter of the Bhagavad Gita is known as 'The Yoga of Knowledge'?",
+                    options: ["Chapter 2", "Chapter 4", "Chapter 7", "Chapter 10"],
+                    answer: 1
+                },
+                {
+                    q: "What is the Sanskrit term for 'detachment from the fruits of action' as taught in the Gita?",
+                    options: ["Karma", "Vairagya", "Nishkama Karma", "Bhakti"],
+                    answer: 2
+                },
+                {
+                    q: "Who was the eldest among the Pandavas?",
+                    options: ["Arjuna", "Bhima", "Yudhishthira", "Nakula"],
+                    answer: 2
+                },
+                {
+                    q: "Which form did Krishna reveal to Arjuna in Chapter 11?",
+                    options: ["Vamana", "Universal Form (Vishvarupa)", "Narasimha", "Parashurama"],
+                    answer: 1
+                },
+                {
+                    q: "How many types of faith (shraddha) are described in the Gita?",
+                    options: ["One", "Two", "Three", "Four"],
+                    answer: 2
+                },
+                {
+                    q: "What is the main subject of Chapter 6 in the Bhagavad Gita?",
+                    options: ["Jnana Yoga", "Karma Yoga", "Dhyana Yoga", "Bhakti Yoga"],
+                    answer: 2
+                },
+                {
+                    q: "Which verse is famous for the phrase 'yada yada hi dharmasya glanir bhavati bharata'?",
+                    options: ["2.47", "4.7", "9.22", "18.66"],
+                    answer: 1
+                },
+                {
+                    q: "Who is referred to as 'Partha' in the Bhagavad Gita?",
+                    options: ["Bhima", "Arjuna", "Krishna", "Duryodhana"],
+                    answer: 1
+                },
+                {
+                    q: "What is the ultimate teaching of the Gita according to Krishna in Chapter 18, verse 66?",
+                    options: [
+                        "Perform rituals",
+                        "Renounce all duties and surrender to Krishna",
+                        "Fight bravely",
+                        "Meditate daily"
+                    ],
+                    answer: 1
+                },
+                {
+                    q: "Which quality is NOT part of the three gunas described in the Gita?",
+                    options: ["Sattva", "Rajas", "Tamas", "Dharma"],
+                    answer: 3
+                },
+                {
+                    q: "What is the Sanskrit word for 'self-realization' used in the Gita?",
+                    options: ["Atma-jnana", "Moksha", "Dharma", "Karma"],
+                    answer: 0
+                },
+                {
+                    q: "Who is Sanjaya in the context of the Bhagavad Gita?",
+                    options: [
+                        "Arjuna's brother",
+                        "Dhritarashtra's charioteer and narrator",
+                        "Krishna's disciple",
+                        "Kaurava warrior"
+                    ],
+                    answer: 1
+                },
+                {
+                    q: "Which chapter is called 'The Yoga of Devotion'?",
+                    options: ["Chapter 9", "Chapter 12", "Chapter 15", "Chapter 18"],
+                    answer: 1
+                },
+                {
+                    q: "What does Krishna say about the soul's destruction?",
+                    options: [
+                        "It can be destroyed by weapons",
+                        "It can be burned by fire",
+                        "It is indestructible",
+                        "It can be drowned in water"
+                    ],
+                    answer: 2
+                },
+                {
+                    q: "Which of the following is NOT a path to liberation mentioned in the Gita?",
+                    options: ["Karma Yoga", "Bhakti Yoga", "Jnana Yoga", "Tantra Yoga"],
+                    answer: 3
+                },
+                {
+                    q: "What is the meaning of 'Sankhya' as used in the Gita?",
+                    options: ["Devotion", "Knowledge", "Meditation", "Sacrifice"],
+                    answer: 1
+                },
+                {
+                    q: "Who asked Sanjaya to narrate the events of the Kurukshetra war?",
+                    options: ["Krishna", "Dhritarashtra", "Drona", "Vidura"],
+                    answer: 1
+                },
+                {
+                    q: "Which chapter discusses the 'Field and the Knower of the Field' (Kshetra and Kshetrajna)?",
+                    options: ["Chapter 8", "Chapter 13", "Chapter 15", "Chapter 18"],
+                    answer: 1
+                },
+                {
+                    q: "What is the main teaching of Chapter 3, Karma Yoga?",
+                    options: [
+                        "Renunciation of all actions",
+                        "Performing one's duty without attachment",
+                        "Meditation only",
+                        "Worship of ancestors"
+                    ],
+                    answer: 1
+                },
+                {
+                    q: "Which verse is considered the essence of the Bhagavad Gita?",
+                    options: [
+                        "2.47: 'Karmanye vadhikaraste...'",
+                        "4.7: 'Yada yada hi dharmasya...'",
+                        "9.22: 'Ananyashchintayanto mam...'",
+                        "18.66: 'Sarva-dharman parityajya...'"
+                    ],
+                    answer: 3
+                }
+            ]
+        };
+
+        const sectionBtns = document.querySelectorAll('.section-btn');
+        const quizForm = document.getElementById('quizForm');
+        const resultDiv = document.getElementById('result');
+        let currentSection = null;
+
+        sectionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sectionBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentSection = btn.getAttribute('data-section');
+                showQuiz(currentSection);
+                resultDiv.textContent = '';
+            });
+        });
+
+        function showQuiz(section) {
+            quizForm.innerHTML = '';
+            quizForm.classList.add('active');
+            const qs = questions[section];
+            qs.forEach((qObj, idx) => {
+                const qDiv = document.createElement('div');
+                qDiv.innerHTML = `
+                    <div class="question">${idx + 1}. ${qObj.q}</div>
+                    <div class="options">
+                        ${qObj.options.map((opt, i) => `
+                            <label>
+                                <input type="radio" name="q${idx}" value="${i}" required>
+                                ${opt}
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                quizForm.appendChild(qDiv);
+            });
+            const submitBtn = document.createElement('button');
+            submitBtn.type = 'submit';
+            submitBtn.className = 'submit-btn';
+            submitBtn.textContent = 'Submit Quiz';
+            quizForm.appendChild(submitBtn);
+        }
+
+        quizForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const qs = questions[currentSection];
+            let score = 0;
+            for (let i = 0; i < qs.length; i++) {
+                const selected = quizForm.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && parseInt(selected.value) === qs[i].answer) {
+                    score++;
+                }
+            }
+            resultDiv.textContent = `You scored ${score} out of ${qs.length}!`;
+            quizForm.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
