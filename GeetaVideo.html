@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <!-- Decorative SVG background shapes -->
+    <svg width="100%" height="320" style="position:absolute; top:0; left:0; z-index:-1;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="bg-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#43cea2" />
+                <stop offset="100%" stop-color="#185a9d" />
+            </linearGradient>
+        </defs>
+        <ellipse cx="15%" cy="30%" rx="320" ry="120" fill="url(#bg-gradient)" opacity="0.35"/>
+        <ellipse cx="85%" cy="20%" rx="220" ry="90" fill="#6cd7b5" opacity="0.18"/>
+        <ellipse cx="50%" cy="0%" rx="600" ry="180" fill="#185a9d" opacity="0.10"/>
+    </svg>
     <h1>"कर्म कर, फळाची अपेक्षा नको"-गीता सार</h1>
     <!-- Replace the YouTube video ID below with your preferred Geeta video -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
+        
         body {
             background: linear-gradient(135deg, #232526 0%, #414345 100%);
             color: #fff;
@@ -21,7 +34,7 @@
             text-align: center;
             margin-top: 40px;
             font-size: 2.5em;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             font-weight: 700;
         }
         .video-grid {
