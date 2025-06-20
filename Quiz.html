@@ -58,9 +58,9 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        text-fill-color: transparent;
-        text-shadow: 1px 2px 8px rgba(255,78,80,0.08);
-        margin-bottom: 28px;
+    /* text-fill-color: transparent; */
+     text-shadow: 1px 2px 8px rgba(255,78,80,0.08);
+     margin-bottom: 28px;
     }
     .section-btn {
         font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
@@ -251,6 +251,61 @@
         <div id="result" class="result"></div>
     </div>
     <script>
+        const sectionBtns = document.querySelectorAll('.section-btn');
+        const quizForm = document.getElementById('quizForm');
+        const resultDiv = document.getElementById('result');
+        let currentSection = null;
+
+         function showQuiz(section) {
+            quizForm.innerHTML = '';
+            quizForm.classList.add('active');
+            const qs = questions[section];
+            qs.forEach((qObj, idx) => {
+                const qDiv = document.createElement('div');
+                qDiv.innerHTML = `
+                    <div class="question">${idx + 1}. ${qObj.q}</div>
+                    <div class="options">
+                        ${qObj.options.map((opt, i) => `
+                            <label>
+                                <input type="radio" name="q${idx}" value="${i}" required>
+                                ${opt}
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                quizForm.appendChild(qDiv);
+            });
+            const submitBtn = document.createElement('button');
+            submitBtn.type = 'submit';
+            submitBtn.className = 'submit-btn';
+            submitBtn.textContent = 'Submit Quiz';
+            quizForm.appendChild(submitBtn);
+        }
+
+        quizForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const qs = questions[currentSection];
+            let score = 0;
+            for (let i = 0; i < qs.length; i++) {
+                const selected = quizForm.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && parseInt(selected.value) === qs[i].answer) {
+                    score++;
+                }
+            }
+            resultDiv.textContent = `You scored ${score} out of ${qs.length}!`;
+            quizForm.classList.remove('active');
+        });
+
+        sectionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sectionBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentSection = btn.getAttribute('data-section');
+                showQuiz(currentSection);
+                resultDiv.textContent = '';
+            });
+        });
+
         // Simple custom vertical scrollbar
         window.addEventListener('DOMContentLoaded', () => {
             // Create scrollbar track
@@ -652,21 +707,7 @@
             ]
         };
 
-        const sectionBtns = document.querySelectorAll('.section-btn');
-        const quizForm = document.getElementById('quizForm');
-        const resultDiv = document.getElementById('result');
-        let currentSection = null;
-
-        sectionBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                sectionBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentSection = btn.getAttribute('data-section');
-                showQuiz(currentSection);
-                resultDiv.textContent = '';
-            });
-        });
-
+    
         
         
     </script>
