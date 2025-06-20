@@ -58,7 +58,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-    /* text-fill-color: transparent; */
+     
      text-shadow: 1px 2px 8px rgba(255,78,80,0.08);
      margin-bottom: 28px;
     }
@@ -122,6 +122,8 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             padding: 28px 18px 18px 18px;
             border: 1px solid #e3e7ee;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         h1 {
             text-align: center;
@@ -151,15 +153,17 @@
         .section-btn.active, .section-btn:hover {
             background: #e3e7ee;
             border-color: #7da0fa;
-            color: #1a237e;
-        }
         .quiz-form {
             display: none;
             flex-direction: column;
             gap: 18px;
             margin-top: 6px;
+            max-height: 60vh;
+            overflow-y: auto;
         }
         .quiz-form.active {
+            display: flex;
+        }
             display: flex;
         }
         .question {
@@ -237,6 +241,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700,800&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="container shadow-lg">
         <h1>Fun Quiz</h1>
         <div class="section-select">
@@ -306,72 +311,8 @@
             });
         });
 
-        // Simple custom vertical scrollbar
-        window.addEventListener('DOMContentLoaded', () => {
-            // Create scrollbar track
-            const scrollbarTrack = document.createElement('div');
-            Object.assign(scrollbarTrack.style, {
-            position: 'fixed',
-            right: '10px',
-            top: '0',
-            width: '8px',
-            height: '100vh',
-            background: 'rgba(200,200,200,0.18)',
-            borderRadius: '4px',
-            zIndex: '1000'
-            });
+        // (Scrollbar code removed. No custom scrollbar needed; users can scroll normally.)
 
-            // Create scrollbar thumb
-            const scrollbarThumb = document.createElement('div');
-            Object.assign(scrollbarThumb.style, {
-            width: '100%',
-            background: 'linear-gradient(135deg, #43cea2 0%, #ff4e50 100%)',
-            borderRadius: '4px',
-            position: 'absolute',
-            left: '0',
-            cursor: 'pointer'
-            });
-
-            scrollbarTrack.appendChild(scrollbarThumb);
-            document.body.appendChild(scrollbarTrack);
-
-            function updateThumb() {
-            const docHeight = document.documentElement.scrollHeight;
-            const winHeight = window.innerHeight;
-            const scrollY = window.scrollY;
-            const thumbHeight = Math.max(winHeight / docHeight * winHeight, 40);
-            const thumbTop = scrollY / (docHeight - winHeight) * (winHeight - thumbHeight);
-            scrollbarThumb.style.height = thumbHeight + 'px';
-            scrollbarThumb.style.top = thumbTop + 'px';
-            }
-
-            updateThumb();
-            window.addEventListener('scroll', updateThumb);
-            window.addEventListener('resize', updateThumb);
-
-            // Drag to scroll
-            let isDragging = false, startY = 0, startScroll = 0;
-            scrollbarThumb.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startY = e.clientY;
-            startScroll = window.scrollY;
-            document.body.style.userSelect = 'none';
-            });
-            window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            const docHeight = document.documentElement.scrollHeight;
-            const winHeight = window.innerHeight;
-            const maxScroll = docHeight - winHeight;
-            const thumbHeight = Math.max(winHeight / docHeight * winHeight, 40);
-            const deltaY = e.clientY - startY;
-            const scrollDelta = deltaY * (maxScroll / (winHeight - thumbHeight));
-            window.scrollTo(0, Math.min(maxScroll, Math.max(0, startScroll + scrollDelta)));
-            });
-            window.addEventListener('mouseup', () => {
-            isDragging = false;
-            document.body.style.userSelect = '';
-            });
-        });
         const questions = {
             easy: [
                 {
